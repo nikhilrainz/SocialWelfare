@@ -369,55 +369,50 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	</script>
 	<!-- //password-script -->
 	<%
-	String em=request.getParameter("email");
-	String pass=request.getParameter("password");
-	String rol=null;
-	int a=5;
-if(em!=null)
-{
-try
-{
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/myproject","root","");
-	Statement stmt=con.createStatement();
-	String sql = "SELECT role FROM registration where email = '"+em+"' AND password='"+pass+"'";
-	ResultSet rs = stmt.executeQuery(sql);
-	while(rs.next()){
-        //Retrieve by column name
-        rol=rs.getString("role");
+		String em=request.getParameter("email");
+		String pass=request.getParameter("password");
+		String rol=null;
+
+
+	try
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/myproject","root","");
+		Statement stmt=con.createStatement();
+		String sql = "SELECT role FROM registration where email = '"+em+"' AND password='"+pass+"'";
+		ResultSet rs = stmt.executeQuery(sql);
+		while(rs.next())
+		{
+	        //Retrieve by column name
+	        rol=rs.getString("role");
+
+	        if(rol.equals("USER"))
+			{
+				response.sendRedirect("UserHome.jsp");
+				System.out.println(rol);
+			}
+			if(rol.equals("ADMIN"))
+			{
+				response.sendRedirect("AdminHome.jsp");
+				System.out.println(rol);
+			}
+			if(rol.equals("SUPERADMIN"))
+			{
+				response.sendRedirect("SuperAdminHome.jsp");
+				System.out.println(rol);
+			}
+				
+		}
+
+	}  
+		
+	catch(Exception e)
+	{
+		System.out.println(e);
 	}
-
-}  
 	
-catch(Exception e)
-{
-	System.out.println(e);
-}
-System.out.println(rol);
-if(rol=="USER")
-{
-	a=10;
-	System.out.println(a);
-	response.sendRedirect("UserHome.jsp");
-}
-if(rol == "ADMIN")
-{
-	a=20;
-	System.out.println(a);
-	response.sendRedirect("AdminHome.jsp");
-}
-if(rol == "SUPERADMIN")
-{
-	a=30;
-	System.out.println(a);
-	response.sendRedirect("SuperAdminHome.jsp");
-}
 
-
-
-}
-
-	%>
+%>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 
