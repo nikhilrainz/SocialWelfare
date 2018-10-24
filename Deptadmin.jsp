@@ -138,10 +138,31 @@ user_tag_config['ebound_header_tag']['mobile'] = {};
 user_tag_config['ebound_header_tag']['mobile']['cpm'] = '';
 user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 </script></div>
+			<%
+String em=(String)session.getAttribute("email");
+if(em.equals("eduadmin@gmail.com"))
+{
+%>
 			<div class="tittle_head_w3ls">
 				<h3 class="tittle">Welcome Student Admin</h3>
 			</div>
-			
+			<%} %>
+	<% 
+	if(em.equals("healthadmin@gmail.com"))
+{
+%>
+			<div class="tittle_head_w3ls">
+				<h3 class="tittle">Welcome Health Admin</h3>
+			</div>
+			<%} %>
+			<%
+			if(em.equals("womenandchild@gmail.com"))
+{
+%>
+			<div class="tittle_head_w3ls">
+				<h3 class="tittle">Welcome Women And Child Department Admin</h3>
+			</div>
+			<%} %>
 	
 </body>
 
