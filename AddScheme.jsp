@@ -186,9 +186,10 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 <%
 	String SName = request.getParameter("schemename");
 	String SDesc = request.getParameter("schemedesc");
+	String em=(String)session.getAttribute("email");
 	
 	String submit = request.getParameter("scheme");
-	
+	String cat=null;
 	if(submit!=null)
 	{
 		
@@ -198,7 +199,22 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 			Statement stmt = con.createStatement();
 			
-			String sql = "insert into studentdepartment(SchemeName,SchemeDesc) values('"+SName+"','"+SDesc+"')";
+			String sql = "SELECT Category FROM registration WHERE Email='"+em+"' ";
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+			cat=rs.getString("Category");
+			}
+		}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+			Statement stmt = con.createStatement();
+			String sql = "insert into departments(SchemeName,SchemeDesc,Category) values('"+SName+"','"+SDesc+"','"+cat+"')";
 			int i = stmt.executeUpdate(sql);
 			
 			if(i>0)
@@ -209,7 +225,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			{
 				System.out.println("Failed");
 			}
-		}
+			}
+			
 		catch(Exception e)
 		{
 			System.out.println(e);
@@ -217,7 +234,6 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	}
 	
 %>
-	
 </body>
 
 
