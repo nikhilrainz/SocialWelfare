@@ -197,24 +197,42 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 									<th>Scheme Description</th>
 								</tr>
 								<%
+								String em=(String)session.getAttribute("email");
+								String cat=null;
 								try
 								{
 									Class.forName("com.mysql.jdbc.Driver");
 									Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 									Statement stmt = con.createStatement();
 									
-									String sql = "SELECT * FROM studentdepartment";
+									String sql = "SELECT Category FROM registration WHERE Email='"+em+"' ";
 									ResultSet rs = stmt.executeQuery(sql);
 									while(rs.next()){
+									cat=rs.getString("Category");
+									}
+								}
+									catch(Exception e)
+									{
+										System.out.println(e);
+									}
+									try
+									{
+									Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+									Statement stmt1 = conn.createStatement();
+									
+
+									String sql1 = "SELECT * FROM departments WHERE Category='"+cat+"' ";
+									ResultSet rs1 = stmt1.executeQuery(sql1);
+									while(rs1.next()){
 								%>
 								<tr>
-									<td><%=rs.getString("SchemeId") %></td>
-									<td><%=rs.getString("SchemeName") %></td>
-									<td><%=rs.getString("SchemeDesc") %></td>
+									<td><%=rs1.getString("SL") %></td>
+									<td><%=rs1.getString("SchemeName") %></td>
+									<td><%=rs1.getString("SchemeDesc") %></td>
 								</tr>
 								<%
 							}
-								}
+									}
 									
 							catch(Exception e)
 								{
