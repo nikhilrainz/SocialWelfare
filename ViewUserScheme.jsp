@@ -276,9 +276,50 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 															}
 															else
 															{
-															%>
-																<a href="ApplyUser.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="submit" id="user" value = "APPLY NOW" ></a>
-															<%
+																System.out.println("Sch = " +sch);
+																if(sch=="1")
+																{ 
+																%>
+																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="prematric" id="user" value = "APPLY NOW" ></a>
+																<%
+																}
+																else if(sch=="2")
+																{
+																%>	
+																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="postmatric" id="user" value = "APPLY NOW" ></a>
+																<% 
+																}
+																
+																else if(sch=="3")
+																{
+																%>	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="meritcum" id="user" value = "APPLY NOW" ></a>
+																<%
+																}
+																else if(sch=="4")
+																{
+																%>	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="central" id="user" value = "APPLY NOW" ></a>
+																<%
+																}
+																else if(sch=="5")
+																{
+																%>	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="rsby" id="user" value = "APPLY NOW" ></a>
+																<%
+																}
+																else if(sch=="6")
+																{
+																%>	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="uhis" id="user" value = "APPLY NOW" ></a>
+																<%
+																}
+																else if(sch=="7")
+																{
+																%>	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="pradhan" id="user" value = "APPLY NOW" ></a>
+																<%
+																}
+																else
+																{
+																%>	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="rntcp" id="user" value = "APPLY NOW" ></a>
+																<%
+																}
 															}
 
 														}
