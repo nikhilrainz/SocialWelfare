@@ -167,46 +167,28 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post" align="right">
-								<table width="400">
-							<tr>
-							<td>
-							<b>Fresh</b>     <input type ="radio" name="abcd"  value="fresh" onchange="" required="" >
-							<td>
-							<b>Renewal</b>   <input type ="radio" name="abcd" value="renew" onchange="" required="" >		
-							
-							</tr>
-
-							</table>
-							<input type ="text" name="adno" placeholder="Enter Admission number" onchange="" required="" >
-								<select id="country13" name="quali" onchange="change_country(this.value)" class="frm-field required">
-														<option value="sslc">SSLC</option>
-													 	<option value="hse">HSE</option>
-														<option value="ug">UG</option>
-														<option value="pg">PG</option>     
+						<form action="#" method="post">
+							<input type ="radio" name="education"  value="fresh" required>Fresh
+							<input type ="radio" name="education" value="renew" required>Renew		
+							<input type ="text" name="adno" placeholder="Enter Admission number" onchange="admn(this)" required>
+							<select id="country13" name="quali" onchange="change_country(this.value)" class="frm-field required">
+								<option value="Choose your Qualification">Choose your Qualification</option>
+								<option value="SSLC">SSLC</option>
+								<option value="HSE">HSE</option>
+								<option value="UG">UG</option>
+								<option value="PG">PG</option>     
 							</select>
-							<input type ="text" name="schname" placeholder="Enter Name Of Institute" onchange="" required="" >
-							<input type ="text" name="schphn" placeholder="Enter Institute Contact Number" onchange="" required="" >
-							<input type ="text" name="fee" placeholder="Enter fees/year" onchange="" required="" >	
-							<table width="400">
-							<tr>
-							<td>
-							Day Scholar      <input type ="radio" name="ab"  value="hostler" onchange="" required="" >
-							<td>
-							Hostler     <input type ="radio" name="ab" value="dayscholar" onchange="" required="" >		
-							
-							</tr>
-
-							</table>
+							<input type ="text" name="schname" placeholder="Enter Name Of Institute" onchange="school(this)" required>
+							<input type ="text" name="schphn" placeholder="Enter Institute Contact Number" onchange="phone(this)" required>
+							<input type ="text" name="fee" placeholder="Enter fees/year" onchange="fees(this)" required>	
+							<input type ="radio" name="type"  value="Hostler" onchange="" required>Hostler
+							<input type ="radio" name="type" value="Dayscholar" onchange="" required>Day Scholar
 							<b><input type="text" placeholder="Previously completed Course Details" readonly></b>
-							<input type ="text" name="regno" placeholder="Enter Register Number" onchange="" required="" >
-							<input type ="text" name="passp" placeholder="Enter Percentage" onchange="" required="" >
-							<input type ="text" name="passyr" placeholder="Enter year of passing" onchange="" required="" >
-							
-														
+							<input type ="text" name="regno" placeholder="Enter Register Number" onchange="reg(this)" required>
+							<input type ="text" name="passp" placeholder="Enter Percentage" onchange="perc(this)" required>
+							<input type ="text" name="passyr" placeholder="Enter year of passing" onchange="year(this)" required>
 							<div class="tp">
 								<input type="submit" name="user" value="Apply">
-								
 							</div>
 						</form>
 					
@@ -215,141 +197,140 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				</div>
 			</div>
 			<!---728x90--->	
-			
-			
+					
  <% 
 	String ml = (String) session.getAttribute("email");
 	System.out.println("Email = "+ml);	
-	String Type = request.getParameter("abcd");
+	
+	String Education = request.getParameter("education");
 	String Adno = request.getParameter("adno");
 	String Quali = request.getParameter("quali");
 	String Schname = request.getParameter("schname");
 	String Schphn = request.getParameter("schphn");
 	String Fee =  request.getParameter("fee");
-	String Hostel = request.getParameter("ab");
+	String Type = request.getParameter("type");
 	String Regno = request.getParameter("regno");
 	String Passp = request.getParameter("passp");
 	String Passyr = request.getParameter("passyr");
 	String submit = request.getParameter("user");
 	
-	/* Query for insertion into application submit */
+	/* Postmatric */
 	
 	if(submit!=null)
 	{
-		session.setAttribute("Type",Type);
-		session.setAttribute("Adno",Adno);
-		session.setAttribute("Quali",Quali);
-		session.setAttribute("Schname",Schname);
-		session.setAttribute("Schphn",Schphn);
-		session.setAttribute("Fee",Fee);
-		session.setAttribute("Hostel",Hostel);
-		session.setAttribute("Regno",Regno);
-		session.setAttribute("Passp",Passp);
-		session.setAttribute("Passyr",Passyr);
-		response.sendRedirect("Bankdetails.jsp");
+		try
+		{
+			session.setAttribute("education",Education);
+			session.setAttribute("adno",Adno);
+			session.setAttribute("quali",Quali);
+			session.setAttribute("schname",Schname);
+			session.setAttribute("schphn",Schphn);
+			session.setAttribute("fee",Fee);
+			session.setAttribute("type",Type);
+			session.setAttribute("regno",Regno);
+			session.setAttribute("passp",Passp);
+			session.setAttribute("passyr",Passyr);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		response.sendRedirect("Bank.jsp");
 		
 	}
-		/* Query for insertion into application submit */
-		
-		/* Updating the table by setting the status 1 where the apply button is clicked */
-		
-	/* Updating the table by setting the status 1 where the apply button is clicked */
+	/* Post Matric */
 %>
  
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- password-script -->
 <script type="text/javascript">
-		/*  window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}  */
-
-		function bank(inp)
-		{
-			var r=/^[a-zA-Z]+$/;
-			if(inp.value.match(r))
-			{
-
-			}
-			else
-			{
-			alert('Invalid Bank Name');
-			}
-		}
-		function checkifsc(inp) 
-		{
-			var r=/^[A-Za-z]{4}\d{7}$/;
-			if(inp.value.match(r))
-			{
-			}
-			else
-			{
-				alert('Invalid IFSC Code');
-			}
-		}
-		function branch(inp)
-		{
-			var r=/^[a-zA-Z]+$/;
-			if(inp.value.match(r))
-			{
-
-			}
-			else
-			{
-			alert('incorrect');
-			}	        
-	   }
-	function checkaccountnumber(inp) 
+function phone(inp)
+{
+	var r = /^[0-9]{4}[-][0-9]{6,8}$/;
+	if(inp.value.match(r))
 	{
-		var r=/^[0-9]+$/;
-		if(inp.value.match(r))
-		{
-
-		}
-		else
-		{
-			alert('incorrect');
-		}      
-	}
-	function checkpattern(inp) {
-		var r=/^\d{12}$/;
-		if(inp.value.match(r))
-		{
-
-		}
-		else
-		{
-		alert('Enter a Valid Aadhar Number');
-		}
-    }
-	function checkpan(inp)
-	{
-		var r=/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
-		if(inp.value.match(r))
-		{
-
-		}
-		else
-		{
-		alert('Enter a Valid Pan Number');
-		}
-	}
-		
-		
-		/* function validatePassword() 
-		{
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
 			
+	}
+	else
+	{
+		alert('Incorrect Phone Number');
+	}
+}
+function school(inp)
+{
+	var r=/^[a-zA-Z]+$/;
+	if(inp.value.match(r))
+	{
+
+	}
+	else
+	{
+	alert('Enter a valid school name');
+	}
+}
+function perc(inp)
+{
+	var r=/^[0-9]{1,2}|[0-9]{1,3}$/;
+	if(inp.value.match(r))
+	{
+		
+	}
+	else
+	{
+		alert('Invalid percentage format');
+	}
+}
+function fees(inp)
+{
+	var r=/^[0-9]{5}$/;
+	if(inp.value.match(r))
+	{
+		
+	}
+	else
+	{
+		alert('Enter a number only');
+	}
+}
+function admn(inp)
+{
+	var r=/^[1-9]{7}$/;
+	if(inp.value.match(r))
+	{
+		
+	}
+	else
+	{
+		alert('Invalid admission number format');
+	}
+}
+function year(inp)
+{
+	var r = ^(19|20)\d{2}$;
+	if(inp.value.match(r))
+	{
 	
-			
-			//empty string means no validation error
-		} */
+	}
+	else
+	{
+		alert('Invalid Year');
+	}
+}
+function reg(inp)
+{
+	var r=/^[1-9]{10}$/;
+	if(inp.value.match(r))
+	{
+		
+	}
+	else
+	{
+		alert('Enter a valid registration number');
+	}
+}
+		
 	</script>
 	<!-- //password-script -->
 	<script type="text/javascript" src="js/bootstrap.js"></script>
