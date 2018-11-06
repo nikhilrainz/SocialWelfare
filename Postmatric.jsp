@@ -230,75 +230,32 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	String Regno = request.getParameter("regno");
 	String Passp = request.getParameter("passp");
 	String Passyr = request.getParameter("passyr");
-	
 	String submit = request.getParameter("user");
 	
 	/* Query for insertion into application submit */
 	
 	if(submit!=null)
 	{
-		try
-		{
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
-			Statement stmt = con.createStatement();
-			
-			String sql = "insert into applicationsubmit(Type,Adno,Quali,Institutionname,Institutionphn,Fee,Hostel,Regno,Passp,Passyr) values('"+Type+"','"+Schname+"','"+Schphn+"','"+Fee+"','"+Hostel+"','"+Regno+"','"+Passp+"','"+Passp+"','"+Passyr+"')";
-			System.out.println(sql);
-			int i = stmt.executeUpdate(sql);
-			
-			if(i>0)
-			{
-				System.out.println("Application Submitted Successfully");
-				//response.sendRedirect("ViewAppliedScheme.jsp");	
-			}
-			else
-			{
-				System.out.println("Failed");
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
+		session.setAttribute("Type",Type);
+		session.setAttribute("Adno",Adno);
+		session.setAttribute("Quali",Quali);
+		session.setAttribute("Schname",Schname);
+		session.setAttribute("Schphn",Schphn);
+		session.setAttribute("Fee",Fee);
+		session.setAttribute("Hostel",Hostel);
+		session.setAttribute("Regno",Regno);
+		session.setAttribute("Passp",Passp);
+		session.setAttribute("Passyr",Passyr);
+		response.sendRedirect("Bankdetails.jsp");
+		
+	}
 		/* Query for insertion into application submit */
 		
 		/* Updating the table by setting the status 1 where the apply button is clicked */
-		try
-		{	
-			String id1 = request.getParameter("id");
-			System.out.println("ID = "+id1);
-			session.setAttribute("id",id1);
-			
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
-			Statement stmt1 = con1.createStatement();
-			
-			String sqla = "UPDATE applyuser SET Status = 1 where UserId = '"+ml+"' AND SchemeId = '"+id1+"'";
-			PreparedStatement ps = con1.prepareStatement(sqla);
-			int i = ps.executeUpdate();
-			
-			if(i > 0)
-			{
-				System.out.println("Record Updated Successfully");
-			}
-			else
-			{
-				System.out.println("There is a problem in updating Record.");
-			} 
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
 		
-		session.setAttribute("email",ml);
-		
-		response.sendRedirect("ViewUserScheme.jsp");
-	}
 	/* Updating the table by setting the status 1 where the apply button is clicked */
 %>
- --%>
+ 
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- password-script -->
