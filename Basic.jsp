@@ -209,12 +209,13 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 	/* Getting the id of Apply Buttons */
 	String id1 = request.getParameter("id");
+	System.out.println("APPLY ID = "+id1);
 	session.setAttribute("id",id1);
 	/* Getting the id of Apply Buttons */
 	
 	String submit = request.getParameter("user");
 	
-	/* Basic Details of Pre-Matric */
+	/* Basic Details for Education Department*/
 	
 	if(submit!=null)
 	{
@@ -230,16 +231,29 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			session.setAttribute("state",State);
 			session.setAttribute("proof",id);
 			session.setAttribute("idno",idno);
+			
+			/* Will need to use IF statement for response query since this page is common for all */
+			
+			if(id1.equals("1"))
+			{
+				response.sendRedirect("Prematric.jsp");
+			}
+			else if(id1.equals("2"))
+			{
+				response.sendRedirect("Postmatric.jsp");
+			}
+			else
+			{
+				response.sendRedirect("Meritcum.jsp");
+			}
+			
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
 		}
-		/* Will need to use IF statement for response query since this page is common for all */
-		response.sendRedirect("Prematric.jsp");
-		/* Basic Details of Pre-Matric */
-		
-	}	
+	}
+	/* Basic Details */
 %>
 
 <!-- js -->
