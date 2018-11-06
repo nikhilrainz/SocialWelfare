@@ -185,7 +185,33 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 <% 
 	String ml = (String) session.getAttribute("email");
-	System.out.println("Email = "+ml);	
+	System.out.println("Email = "+ml);
+	String id1 = (String) session.getAttribute("id");
+	System.out.println("ID = "+id1);
+	session.setAttribute("id",id1);
+	/* Prematric */
+	String Edu="";
+	String Admn="";
+	String Cls="";
+	String School="";
+	String Schph="";
+	String Perc="";
+	String Fees="";
+	String Typea="";
+	/* Prematric */
+	
+	/* Postmatric */
+	String Educ="";
+	String Adno="";
+	String Quali="";
+	String Schname="";
+	String Schphn="";
+	String Fee="";
+	String Typeb="";
+	String Regno="";
+	String Passp="";
+	String Passyr="";
+	/* Postmatric */
 	
 	/* Getting Attributes from First page */
 	String Guardian = (String) session.getAttribute("guardian");
@@ -196,14 +222,30 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	String Idno = (String) session.getAttribute("idno");
 	
 	/* Getting Attributes from Second Page */
-	String Edu = (String) session.getAttribute("education");
-	String Admn = (String) session.getAttribute("admno");
-	String Cls = (String) session.getAttribute("cls");
-	String School = (String) session.getAttribute("school");
-	String Schph = (String) session.getAttribute("schoolph");
-	String Perc = (String) session.getAttribute("perc");
-	String Fees = (String) session.getAttribute("fees");
-	String Type = (String) session.getAttribute("type");
+	if(id1.equals("1"))
+	{
+		Edu = (String) session.getAttribute("education");
+		Admn = (String) session.getAttribute("admno");
+		Cls = (String) session.getAttribute("cls");
+		School = (String) session.getAttribute("school");
+		Schph = (String) session.getAttribute("schoolph");
+		Perc = (String) session.getAttribute("perc");
+		Fees = (String) session.getAttribute("fees");
+		Typea = (String) session.getAttribute("type");
+	}
+	else
+	{
+		Educ = (String) session.getAttribute("education");
+		Adno = (String) session.getAttribute("adno");
+		Quali = (String) session.getAttribute("quali");
+		Schname = (String) session.getAttribute("schname");
+		Schphn = (String) session.getAttribute("schphn");
+		Fee = (String) session.getAttribute("fee");
+		Typeb = (String) session.getAttribute("type");
+		Regno = (String) session.getAttribute("regno");
+		Passp = (String) session.getAttribute("passp");
+		Passyr = (String) session.getAttribute("passyr");
+	}
 	
 	/*Bank Details*/
 	String Bank = request.getParameter("bank");
@@ -213,7 +255,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	
 	String submit = request.getParameter("user");
 	System.out.println("Apply = " +submit);
-	/* Query for inserting all the values into table Pre Matric */
+	/* Query for inserting all the values into tables based on ApplyId */
 	
 	if(submit!=null)
 	{
@@ -223,18 +265,37 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 			Statement stmt = con.createStatement();
 			
-			String sql = "insert into prematric(Guardian,Address,Pin,State,Id,Idno,Education,Admno,Class,School,Schoolph,Percentage,Fees,Type,Bank,Branch,Accno,Ifsc) values('"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Edu+"','"+Admn+"','"+Cls+"','"+School+"','"+Schph+"','"+Perc+"','"+Fees+"','"+Type+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
-			System.out.println(sql);
-			int i = stmt.executeUpdate(sql);
-			
-			if(i>0)
+			if(id1.equals("1"))
 			{
-				System.out.println("Application Submitted Successfully");
-				//response.sendRedirect("ViewAppliedScheme.jsp");	
+				String sql = "insert into prematric(Guardian,Address,Pin,State,Id,Idno,Education,Admno,Qualification,Schoolname,Schoolphn,Fee,Type,Regno,Passperc,Passyr,Bank,Branch,Accno,Ifsc) values('"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Edu+"','"+Admn+"','"+Cls+"','"+School+"','"+Schph+"','"+Perc+"','"+Fees+"','"+Typea+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
+				System.out.println(sql);
+				int i = stmt.executeUpdate(sql);
+			
+				if(i>0)
+				{
+					System.out.println("Application Submitted Successfully");
+					//response.sendRedirect("ViewAppliedScheme.jsp");	
+				}
+				else
+				{
+					System.out.println("Failed");
+				}
 			}
 			else
 			{
-				System.out.println("Failed");
+				String sql = "insert into postmatric(Guardian,Address,Pin,State,Id,Idno,Education,Admno,Qualification,Schoolname,Schoolphn,Fee,Type,Regno,Passperc,Passyr,Bank,Branch,Accno,Ifsc) values('"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Educ+"','"+Adno+"','"+Quali+"','"+Schname+"','"+Schphn+"','"+Fee+"','"+Typeb+"','"+Regno+"','"+Passp+"','"+Passyr+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
+				System.out.println(sql);
+				int i = stmt.executeUpdate(sql);
+			
+				if(i>0)
+				{
+					System.out.println("Application Submitted Successfully");
+					//response.sendRedirect("ViewAppliedScheme.jsp");	
+				}
+				else
+				{
+					System.out.println("Failed");
+				}
 			}
 		}
 		catch(Exception e)
@@ -242,12 +303,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			System.out.println(e);
 		}
 		try
-		{	
-			String id1 = (String) session.getAttribute("id");
-			System.out.println("ID = "+id1);
-			session.setAttribute("id",id1);
-			
-			Class.forName("com.mysql.jdbc.Driver");
+		{	Class.forName("com.mysql.jdbc.Driver");
 			Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 			Statement stmt1 = con1.createStatement();
 			
