@@ -227,7 +227,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 													else
 													{
 													%>
-														<td><a href="View.jsp?id=<%=ress.getString("SchemeId")%>"><input type = "button" name = "view" class="btn btn-primary" value = "&nbsp View &nbsp"></a></td>
+														<td><a href="View.jsp?id=<%=ress.getString("SchemeId")%>"><input type = "button" name = "Womenchild" class="btn btn-primary" value = "&nbsp View &nbsp"></a></td>
 													<%
 													}
 													%>
