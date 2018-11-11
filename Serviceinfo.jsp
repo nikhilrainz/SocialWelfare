@@ -166,13 +166,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post">
-						<select id="country13" name="cast" onchange="change_country(this.value)" placeholder ="Enter your Cast" class="frm-field required">
+						<select id="country13" name="cast" onchange="change_country(this.value)"  class="frm-field required" required>
+														<option value="">Select Cast</option>
 														<option value="sc">SC</option>
 													 <option value="st">ST</option>
 														<option value="other">Other</option>     
 										</select>
-							<input type="text" name = "hus" placeholder ="Enter Husband's Full Name " placeholder ="Enter occupation" onchange="" required>
+							<input type="text" name = "hus" placeholder ="Enter Husband's Full Name " placeholder ="Enter occupation" onchange="textverify(this)" required>
 							<select id="country13" name="occu" onchange="change_country(this.value)" class="frm-field required">
+													 <option value="">Select Occupation</option>
 													 <option value="Business">Business</option>
 													 <option value="Farmer">Farmer</option>
 													 <option value="Irregular">Irregular income earner</option>
@@ -180,7 +182,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 													 <option value="other">Other</option> 
 							</select>
 							
-							<input type="text" name = "primary" placeholder ="Enter Primary Health Center" onchange = "" required>
+							<input type="text" name = "primary" placeholder ="Enter Primary Health Center" onchange = "textverify(this)" required>
 							Do you get benefit from other schemes
 							Yes<input type ="radio" name="ab"  value="yes" onchange="" required="" >
 							No <input type ="radio" name="ab" value="no" onchange="" required="" >		
@@ -240,82 +242,25 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		/* Pre - Matric Details */
 		
 	}	
+	
 %>
 
 <!-- js -->
 <script>
-	function phone(inp)
-	{
-		var r = /^[0-9]{4}[-][0-9]{6,8}$/;
-		if(inp.value.match(r))
-		{
-				
-		}
-		else
-		{
-			alert('Incorrect Phone Number');
-		}
-	}
-	function school(inp)
-	{
-		var r=/^[a-zA-Z]+$/;
-		if(inp.value.match(r))
-		{
+function textverify(inputtxt)
+{
+ var letters = /^[A-Za-z]+$/;
+ if(inputtxt.value.match(letters))
+   {
+    return true;
+   }
+ else
+   {
+   alert("Enter valid data");
+   return false;
+   }
+}
 
-		}
-		else
-		{
-		alert('Enter a valid school name');
-		}
-	}
-	function perc(inp)
-	{
-		var r=/^[0-9]{1,2}|[0-9]{1,3}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Invalid percentage format');
-		}
-	}
-	function fees(inp)
-	{
-		var r=/^[0-9]{5}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Enter a number only');
-		}
-	}
-	function cls(inp)
-	{
-		var r=/^[1-9]|10$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Format not allowed');
-		}
-	}
-	function admn(inp)
-	{
-		var r=/^[1-9]{7}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Invalid format');
-		}
-	}
 </script>
 </body>
 
