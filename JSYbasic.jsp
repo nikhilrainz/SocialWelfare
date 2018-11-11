@@ -166,14 +166,14 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post">
-							<input type="text" name = "mother" placeholder ="Enter Mother's Full Name " onchange="" required>
-							<input type="text" name = "aadhar" placeholder ="Enter Mother's Aadhar number" onchange = "" required>
-							<input type="text" name = "mob" placeholder ="Enter Mobile Number" onchange = " phone(this)" required>
+							<input type="text" name = "mother" placeholder ="Enter Mother's Full Name " onchange="textverify(this)" required>
+							<input type="text" name = "aadhar" placeholder ="Enter Mother's Aadhar number" onchange = "checkpattern(this)" required>
+							<input type="text" name = "mob" placeholder ="Enter Mobile Number" onchange = " Phone(this)" required>
 							<input type="text" name = "email" placeholder ="Enter E-mail Id" onchange =""  required>
-							<input type="text" name = "district" placeholder ="Enter your District" onchange = "" required>
-							<input type="text" name = "state" placeholder ="Enter your State" onchange = "" required>
-							<input type="text" name = "address" placeholder = "Enter your Address" required>
-							<input type="text" name = "pin" placeholder = "Enter your Pincode" required>
+							<input type="text" name = "district" placeholder ="Enter your District" onchange = "textverify(this)" required>
+							<input type="text" name = "state" placeholder ="Enter your State" onchange = "textverify(this)" required>
+							<input type="text" name = "address" id="mail" placeholder = "Enter your Address" onChange="checkEmail(this)" required>
+							<input type="text" name = "pin" placeholder = "Enter your Pincode" onChange="pincode(this)" required>
 							<div class="tp">
 								<input type="submit" name="user" value="Next">
 							</div>
@@ -235,78 +235,71 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 <!-- js -->
 <script>
-	function phone(inp)
+	function checkpattern(inp) {
+	var r=/^\d{12}$/;
+	if(inp.value.match(r))
 	{
-		var r = /^[0-9]{4}[-][0-9]{6,8}$/;
-		if(inp.value.match(r))
-		{
-				
-		}
-		else
-		{
-			alert('Incorrect Phone Number');
-		}
-	}
-	function school(inp)
-	{
-		var r=/^[a-zA-Z]+$/;
-		if(inp.value.match(r))
-		{
 
-		}
-		else
-		{
-		alert('Enter a valid school name');
-		}
 	}
-	function perc(inp)
+	else
 	{
-		var r=/^[0-9]{1,2}|[0-9]{1,3}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Invalid percentage format');
-		}
+	alert('Enter a Valid Aadhar Number');
+	document.myform.beneficiary.focus();
 	}
-	function fees(inp)
+	}
+	function Phone(inputtxt)
 	{
-		var r=/^[0-9]{5}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Enter a number only');
-		}
+		  var phoneno = /^[789]\d{9}$/;
+		  if(inputtxt.value.match(phoneno))
+		  {
+		      return true;
+		  }
+		  else
+		  {
+		     alert('Invalid Phone Number');
+		     return false;
+		  }
 	}
-	function cls(inp)
+	function pincode(num)
 	{
-		var r=/^[1-9]|10$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Format not allowed');
-		}
+	       var CheckZipCode = /(^\d{6}$)/;
+	       if(CheckZipCode.test(num))
+	       {
+	             alert("Your Entered Zip Code Is Valid.");
+	       }
+	       else
+	       {
+	             alert("Your Entered Zip Code Is Not Valid.");
+	       }
 	}
-	function admn(inp)
-	{
-		var r=/^[1-9]{7}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Invalid format');
-		}
+	function textverify(inputtxt)
+	  {
+	   var letters = /^[A-Za-z]+$/;
+	   if(inputtxt.value.match(letters))
+	     {
+	      return true;
+	     }
+	   else
+	     {
+	     alert("Enter valid data");
+	     return false;
+	     }
+	  }
+	function checkEmail() {
+
+	    var email = document.getElementById('txtEmail');
+	    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+	    if (!filter.test(email.value)) {
+	    alert('Please provide a valid email address');
+	    email.focus;
+	    return false;
+	 }
 	}
+
+
+	
+
 </script>
 </body>
 
