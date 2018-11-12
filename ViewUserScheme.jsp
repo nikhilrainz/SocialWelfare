@@ -38,26 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="http://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 	    rel='stylesheet' type='text/css'>
-	   <style type="text/css">
-		th,td
-		{
-			margin: 0;
-			text-align:left;
-			border-collapse:collapse;	
-		}
-		td
-		{
-			padding: 15px 10px;
-			
-		}
-		th
-		{
-			
-			padding: 15px 10px;
-			
-		}
-		
-</style>
+	   
 </head>
 
 <body>
@@ -196,6 +177,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		Statement stmt = con.createStatement();
 		
 		String sql = "SELECT * FROM registration where Category = '"+Category+"' ";
+		System.out.println(sql);
 		ResultSet rs = stmt.executeQuery(sql);
 		if(rs.next()){
 		  //Retrieve by column name
@@ -216,12 +198,14 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post" name="myform">
-							<table border=2>
+							<table class ="table-striped table-bordered table-condensed table-hover">
 								<tr>
 									<th>Scheme ID</th>
 									<th>Scheme Name</th>
 									<th>Scheme Description</th>
 									<th>Apply</th>
+									<th>Application Preview</th>
+									<th>Application Status</th>
 								</tr>
 								
 								<%
@@ -230,13 +214,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 									{
 										int status=0;String sch="";String c="";
 										String mail = (String) session.getAttribute("email");
-										System.out.println("Email ID = "+mail);	
+										System.out.println("Email ID = "+mail);
+										session.setAttribute("email",mail);/*Sessioning for User View Application(ViewUserApplication.jsp)*/
 										
 										Class.forName("com.mysql.jdbc.Driver");
 										Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 										Statement stmt = con.createStatement();
 										/* Fetching the values from student department based on category*/
 										String sql = "SELECT * FROM studentdepartment where Category = '"+cname+"'";
+										System.out.println(sql);
 										ResultSet rs = stmt.executeQuery(sql);
 										while(rs.next())
 										{									
@@ -256,7 +242,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 														Connection cona = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 														Statement stmta = cona.createStatement();
 																																									
-														String sqlb = "SELECT SchemeId,Status FROM applyuser where UserId ='"+mail+"' AND SchemeId = '"+c+"'";
+														String sqlb = "SELECT SchemeId,Status,PayStatus,RejectStatus FROM applyuser where UserId ='"+mail+"' AND SchemeId = '"+c+"'";
 														System.out.println(sqlb);
 														ResultSet res = stmta.executeQuery(sqlb);
 														if(res.next())
@@ -265,11 +251,39 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 															System.out.println("Schemes = " +sch);
 															status =  res.getInt("Status");
 															System.out.println("Status = "+status);
+															int paystat = res.getInt("PayStatus");
+															System.out.println("Pay Status = "+paystat);
+															int rejstat = res.getInt("RejectStatus");
+															System.out.println("Reject Status = "+rejstat);
 																
 															if(status==1)
 															{
 															%>	
-																<input type = "button" value = "APPLIED" disabled >													
+																<b><input type = "button" class="btn btn-success" value = "APPLIED" disabled></b>
+																<!-- Sessioning SchemeId to ViewUserApplication.jsp  -->
+																<td><a href="ViewUserApplication.jsp?sid=<%=res.getString("SchemeId")%>"><input type = "button" name ="viewuser" id="user" class="btn btn-primary" value = "View Application" ></a></td>
+																
+																<%
+																	if(paystat==1)
+																	{
+																	%>
+																		<td><button class="btn btn-info" name="paytrue">Approved</button></td>
+																	<% 		
+																	}
+																	else if(rejstat==1)
+																	{
+																	%>
+																		<td><button class="btn btn-danger" name="rejtrue">Rejected</button></td>
+																	<%
+																	}
+																	else
+																	{
+																	%>
+																		<td><button class="btn btn-warning" name="none">Under Processing</button></td>
+																	<% 
+																	}
+																%>
+																												
 															<% 
 															}
 															else
@@ -278,19 +292,31 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 																if(sch.equals("1"))
 																{
 																%>
-																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="prematric" id="user" value = "APPLY NOW" ></a>
+																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="prematric" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
 																<%
 																}
 																else if(sch.equals("2"))
 																{
 																%>
-																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="postmatric" id="user" value = "APPLY NOW" ></a>
+																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="postmatric" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
 																<%
 																}
-																else 
+																else if(sch.equals("3")) 
 																{	
 																%>
-																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="mcm" id="user" value = "APPLY NOW" ></a>
+																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="mcm" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
+																<%
+																}
+																else if(sch.equals("4"))
+																{
+																%>
+																	<a href="PrathanBasic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="prathan" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
+																<%
+																}
+																else
+																{
+																%>
+																	<a href="JSYbasic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="jsy" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
 																<%
 																}
 															}
