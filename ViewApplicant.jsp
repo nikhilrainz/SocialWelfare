@@ -182,6 +182,14 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 									String ml = (String) session.getAttribute("email");
 									System.out.println("Email Id = " +ml);
 									String cname="";
+									/* For Application Reject-->View Application.jsp */
+									String Reject = request.getParameter("approve");
+									System.out.println("Reject = "+Reject);
+									String Uemail = (String) session.getAttribute("mail");
+									System.out.println("User Email = " +Uemail);
+									String View =(String) session.getAttribute("id");
+									System.out.println("User View Id = "+View); 
+									/* For Application Reject-->View Application.jsp */
 									try
 									{
 										Class.forName("com.mysql.jdbc.Driver");
@@ -202,6 +210,38 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 									{
 										System.out.println(e);	
 									}
+									/* Updating the Reject Status to 1 if the conditions are satisfied */
+									if(Reject!=null)
+											{
+												try
+												{
+													Class.forName("com.mysql.jdbc.Driver");
+													Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+													Statement stmt1 = con1.createStatement();
+													
+													String sqlb = "UPDATE applyuser SET RejectStatus = 1 where UserId = '"+Uemail+"' AND SchemeId = '"+View+"'";
+													System.out.println(sqlb);
+													PreparedStatement ps = con1.prepareStatement(sqlb);
+													int i = ps.executeUpdate();
+													
+													if(i > 0)
+													{
+														System.out.println("Reject Status Updated Successfully");
+													}
+													else
+													{
+														System.out.println("There is a problem in updating Record.");
+													}
+												}
+												catch(Exception e)
+												{
+													System.out.println(e);
+												}
+											}
+									
+									/* Updating the Reject Status to 1 if the conditions are satisfied */
+									
+									/* Query for Viewing Applicant details */
 									try
 									{
 										
@@ -241,7 +281,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 									{
 										System.out.println(e);
 									}
-
+									/* Query for Viewing Applicant details */
 								%>
 												
 												
