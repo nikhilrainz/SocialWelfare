@@ -232,15 +232,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 														<option value="Female">Female</option>
 														<option value="Others">Others</option>     
 										</select>
-							<input type="text" name="date" placeholder="DD-MM-YYYY" onchange="validatedate(this)" required="">
+							<input type="text" name="date" placeholder="DD-MM-YYYY" onfocusout="validatedate(this)" required=""><p id="date"></p>
+							
 							<select id="country13" name="category" onchange="change_country(this.value)" class="frm-field required">
 														<option value="null">Category</option>
-													 <option value="Education">Education</option>
-														<option value="Health">Health</option>
+													 	<option value="Education">Education</option>
 														<option value="Women and Child">Women and Child</option>     
 										</select>
-							<input type="text" name="phone" id = "num" placeholder="Enter your Phone Number" onchange = "Phone(this)" required="">
-							<input type ="text" name="bankname" placeholder="Bank Name" onchange="bank(this)" required="" >
+							<input type="text" name="phone" id = "num" placeholder="Enter your Phone Number" onfocusout="validatephone(this)" required>
+							<p id = "phone"></p>
 							<input type="email" name="email" placeholder="Enter your Email Address" required="">
 							<input type="password" name="password" id="password1" placeholder="Password" required="">
 							<input type="password" name="password" id="password2" placeholder="Confirm Password" required="">
@@ -256,12 +256,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import = "java.sql.*" %>
-<%
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
-		Statement stmt = con.createStatement();
-		
-		
+
+<%	
 		String FName = request.getParameter("firstname");
 		String LName = request.getParameter("lastname");
 		String Gender = request.getParameter("gender");
@@ -276,9 +272,13 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		String submit = request.getParameter("submit");
 		System.out.println(submit);
 		
-		if(submit != null) { 
+		if(submit != null) 
+		{ 
 			try
-			{
+			{	
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+				Statement stmt = con.createStatement();
 				
 				String sql = "insert into registration(FirstName,LastName,Gender,Dob,Category,PhoneNumber,Email,Password,ConfirmPassword,Role) values('"+FName+"','"+LName+"','"+Gender+"','"+Dob+"','"+Category+"','"+Phone+"','"+EmailID+"','"+Password+"','"+Cnfpass+"','"+Role+"')";
 				System.out.println(sql);
@@ -286,9 +286,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				if(i>0)
 				{
 					System.out.println("Registration Successfull");
-					response.sendRedirect("Login.jsp");
 				}
-				else
+				else	
 				{
 					System.out.println("Registration Failed");
 				}
@@ -296,9 +295,52 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			catch(Exception e)
 			{
 				System.out.println(e);
+			}	
+					
+			try
+			{
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+				Statement stmts = conn.createStatement();
+				
+				
+					String scheme=null;String schemename=null;
+					System.out.println("Category = "+Category);
+					String sqla = "SELECT SchemeId,SchemeName FROM studentdepartment where Category = '"+Category+"'";
+					ResultSet rs = stmts.executeQuery(sqla);
+					while(rs.next())
+					{
+						scheme=rs.getString("SchemeId");
+						System.out.println("Scheme = "+scheme);
+						schemename=rs.getString("SchemeName");
+						System.out.println("SchemeName = "+schemename);
+						
+						Connection conn1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+						Statement stmts1 = conn1.createStatement();
+						
+						String sqlb = "insert into applyuser(UserId,Category,SchemeName,SchemeId) values('"+EmailID+"','"+Category+"','"+schemename+"','"+scheme+"')";
+						System.out.println(sqlb);
+						
+						int j = stmts1.executeUpdate(sqlb);
+								
+						if(j>0)
+						{
+							System.out.println("Insertion Successfull");
+							
+						}
+						else
+						{
+							System.out.println("Insertion Failed");
+						} 
+					}
+								
 			}
-		 } 		
-		
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			response.sendRedirect("Login.jsp");			
+		}		
 %>
 
 <script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
@@ -416,31 +458,24 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			document.getElementById("password2").onchange = validatePassword;
 		}
 		
-		function Phone(inputtxt)
+		function validatephone(inputtxt)
 		{
 			  var phoneno = /^[789]\d{9}$/;
 			  if(inputtxt.value.match(phoneno))
 			  {
+				  document.myform.email.focus();
+				  document.getElementById("phone").innerHTML="";
 			      return true;
 			  }
 			  else
 			  {
-			     alert('Invalid Phone Number');
+			     //alert('Invalid Phone Number');
+			     phone.style.color='Red';
+			     document.getElementById("phone").innerHTML="Invalid Phone Number";
+			     document.myform.phone.focus();
 			     return false;
 			  }
 		}
-		function bank(inp) {
-			var r=/^[a-zA-Z]+$/;
-			if(inp.value.match(r))
-			{
-
-			}
-			else
-			{
-			alert('incorrect');
-			}
-			        
-			    }
 		function validatedate(inputText)
 		  {
 		  	 var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
@@ -496,9 +531,9 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			 }
 			 else
 			 {
-			  alert("Invalid date format!");
-			  document.form1.text1.focus();
-			  return false;
+			  	alert('invalid date format');
+			    document.myform.date.focus();
+			  	return false;
 			 }
 		  }
 
