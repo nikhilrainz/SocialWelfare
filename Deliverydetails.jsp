@@ -166,14 +166,14 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post">
-							<input type="text" name = "pod" placeholder ="Enter Place of Delivery " onchange="" required>
-							<input type="text" name = "ddate" placeholder ="Enter Delivery Date" onchange = "" required>
-							Type of Delivery
-							Normal<input type ="radio" name="dtype"  value="normal" onchange="" required="" >
-							Cesarean<input type ="radio" name="dtype" value="cesarean" onchange="" required="" >	<br>	
-							Delivery Result
-							Surviving Child<input type ="radio" name="res"  value="surviving" onchange="" required="" >
-							Dead Child<input type ="radio" name="res" value="dead" onchange="" required="" >	
+							<input type="text" name = "pod" placeholder ="Enter Place of Delivery " required>
+							<input type="text" name = "date" placeholder ="Enter Delivery Date" onchange = "validatedate(this)" required>
+							<b> Type of Delivery &nbsp &nbsp </b>
+							<input type ="radio" name="dtype"  value="normal" required>&nbsp Normal
+							<input type ="radio" name="dtype" value="cesarean" required>&nbsp Cesarean	
+							<b> Delivery Result &nbsp &nbsp </b>
+							<input type ="radio" name="res"  value="surviving" required>&nbsp Surviving Child
+							<input type ="radio" name="res" value="dead"  required >&nbsp Dead Child	
 							<div class="tp">
 								<input type="submit" name="user" value="Next">
 							</div>
@@ -189,13 +189,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 <% 
 	String ml = (String) session.getAttribute("email");
 	System.out.println("Email = "+ml);
+	
 	String Placeofd = request.getParameter("pod");
-	String Ddate = request.getParameter("ddate");
-	String Dtype = request.getParameter("tod");
+	String Ddate = request.getParameter("date");
+	String Dtype = request.getParameter("dtype");
 	String Dres = request.getParameter("res");
+	
 	String submit = request.getParameter("user");
 	
-	/* Pre - Matric Details */
+	/* JSY Delivery Details */
 	
 	if(submit!=null)
 	{
@@ -206,17 +208,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			Statement stmt = con.createStatement();
 			
 			session.setAttribute("pod",Placeofd);
-			session.setAttribute("ddate",Ddate);
+			session.setAttribute("date",Ddate);
 			session.setAttribute("dtype",Dtype);
-			session.setAttribute("dres",Dres);
-			session.setAttribute("sub",submit);
+			session.setAttribute("res",Dres);
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
 		}
-		response.sendRedirect("Womenbank.jsp");
-		/* Pre - Matric Details */
+		response.sendRedirect("WCBank.jsp");
+		/* JSY Delivery Details */
 		
 	}	
 %>
