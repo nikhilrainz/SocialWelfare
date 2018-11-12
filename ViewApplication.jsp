@@ -163,22 +163,24 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="ViewApplication.jsp" >
+						<form action="#" method = "post" >
 							<table class = "table-striped table-bordered table-condensed">
 							<%
 								/* Getting the corresponding userId */
 								String eml = request.getParameter("mail");
 								System.out.println("eml = "+eml);
+								session.setAttribute("mail",eml);/*For Payment Gateway*/
 								/* Id number of Respective Schemes */
 								String vid = (String) session.getAttribute("id");
 								System.out.println("View Id = "+vid);
+								session.setAttribute("id",vid);
 								try
 								{
 									Class.forName("com.mysql.jdbc.Driver");
 									Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 									Statement stmt = con.createStatement();
 									/* Displaying contents from registration table */
-									String sql = "SELECT * FROM registration where Email = '"+eml+"'";
+									String sql = "SELECT * FROM registration where Email = '"+eml+"'"; 
 									ResultSet rs = stmt.executeQuery(sql);
 									if(rs.next())
 									{
@@ -657,9 +659,14 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 									
 									%>	<!-- Actions to be performed for Dept Admin -->
 										<tr>
-											<td><a href="payment.jsp"><input type ="button" class = "btn btn-success" value = "Approve"></a></td>
-											<td><a href="ViewApplicant.jsp"><input type="button" class = "btn btn-danger" value = "Reject"></a></td>
-										</tr>	
+											<td>
+												<a href="Payment.jsp?approve=approve"><input type ="button" class = "btn btn-success" name = "approved" value = "Approve" onclick="approve(this)"></a>
+											</td>
+											<td>
+												<a href="ViewApplicant.jsp?approve=reject"><input type="button" class = "btn btn-danger" name = "reject" value = "Reject" onclick="reject(this)"></a>
+											</td>
+										</tr>
+											
 								<% 
 								}
 								catch(Exception e)
@@ -674,7 +681,22 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				</div>
 			</div>
 			<!---728x90--->	
-	
+<script>
+	function approve(inp)
+	{
+		if(inp)
+		{
+			confirm('Are you sure you want to continue to the Payment Gateway?');
+		}
+	}
+	function reject(inp)
+	{
+		if(inp)
+		{
+			confirm('Are you sure you want reject the application?');
+		}
+	}
+</script>
 
 	
 </body>
