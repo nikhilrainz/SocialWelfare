@@ -136,7 +136,7 @@ user_tag_config['ebound_header_tag']['mobile']['cpm'] = '';
 user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 </script></div>
 			<div class="tittle_head_w3ls">
-				<h3 class="tittle">Education Details</h3>
+				<h3 class="tittle">Academic Details</h3>
 			</div>
 		<!---728x90--->
 <script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
@@ -165,20 +165,20 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post">
+						<form action="#" method="post" name="myform">
 							<select id="country13" name="education" onchange="change_country(this.value)" class="frm-field required">
-														<option value="Choose your type">Type</option>
+														<option value="Choose your type">Choose your type of application</option>
 													 <option value="fresh">Fresh</option>
 														<option value="renew">Renewal</option>     
 										</select>
-							<input type="text" name = "admno" placeholder ="Enter your Admission Number" onchange="admn(this)" required>
-							<input type="text" name = "cls" placeholder ="Enter your Class" onchange = "cls(this)" required>
-							<input type="text" name = "school" placeholder ="Enter your School Name" onchange = "school(this)" required>
-							<input type="text" name = "schoolph" placeholder ="Enter your School Phone Number" onchange = "phone(this)" required>
-							<input type="text" name = "perc" placeholder ="Enter your Previous Class Percentage" onchange = "perc(this)" required>
-							<input type="text" name = "fees" placeholder ="Enter your School Fees per year" onchange = "fees(this)" required>
-							<input type="radio" name = "type" placeholder = "Hostler" required>Hostler
-							<input type="radio" name = "type" placeholder = "Day Scholar" required>Day Scholar
+							<input type="text" name = "admno" placeholder ="Enter your Admission Number" onfocusout="validateadmn(this)" required>
+							<input type="text" name = "cls" placeholder ="Enter your Class" onfocusout="validatecls(this)" required>
+							<input type="text" name = "school" placeholder ="Enter your School Name" onfocusout ="validateschool(this)" required>
+							<input type="text" name = "schoolph" placeholder ="Enter your School Phone Number" onfocusout="validatephone(this)" required>
+							<input type="text" name = "perc" placeholder ="Enter your Previous Class Percentage" onfocusout="validateperc(this)" required>
+							<input type="text" name = "fees" placeholder ="Enter your School Fees per year" onfocusout="validatefees(this)" required>
+							<input type="radio" name = "type" value = "Hostler" placeholder = "Hostler" required>Hostler
+							<input type="radio" name = "type" value = "Day Scholar" placeholder = "Day Scholar" required>Day Scholar
 							<div class="tp">
 								<input type="submit" name="user" value="Next">
 								
@@ -238,7 +238,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 <!-- js -->
 <script>
-	function phone(inp)
+	function validatephone(inp)
 	{
 		var r = /^[0-9]{4}[-][0-9]{6,8}$/;
 		if(inp.value.match(r))
@@ -247,10 +247,11 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		}
 		else
 		{
-			alert('Incorrect Phone Number');
+			alert('Please include - in between');
+			document.myform.schoolph.focus();
 		}
 	}
-	function school(inp)
+	function validateschool(inp)
 	{
 		var r=/^[a-zA-Z]+$/;
 		if(inp.value.match(r))
@@ -260,9 +261,10 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		else
 		{
 		alert('Enter a valid school name');
+		 document.myform.school.focus();
 		}
 	}
-	function perc(inp)
+	function validateperc(inp)
 	{
 		var r=/^[0-9]{1,2}|[0-9]{1,3}$/;
 		if(inp.value.match(r))
@@ -271,10 +273,11 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		}
 		else
 		{
-			alert('Invalid percentage format');
+			alert('Use numbers only');
+			 document.myform.perc.focus();
 		}
 	}
-	function fees(inp)
+	function validatefees(inp)
 	{
 		var r=/^[0-9]{5}$/;
 		if(inp.value.match(r))
@@ -283,10 +286,11 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		}
 		else
 		{
-			alert('Enter a number only');
+			alert('Enter a number only upto 5 digits');
+			 document.myform.fees.focus();
 		}
 	}
-	function cls(inp)
+	function validatecls(inp)
 	{
 		var r=/^[1-9]|10$/;
 		if(inp.value.match(r))
@@ -296,9 +300,10 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		else
 		{
 			alert('Format not allowed');
+			 document.myform.cls.focus();
 		}
 	}
-	function admn(inp)
+	function validateadmn(inp)
 	{
 		var r=/^[1-9]{7}$/;
 		if(inp.value.match(r))
@@ -307,7 +312,9 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		}
 		else
 		{
-			alert('Invalid format');
+			alert('Only numbers are permitted upto 7 digits');
+			 document.myform.admno.focus();
+			 return false;
 		}
 	}
 </script>
