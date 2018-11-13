@@ -1,4 +1,3 @@
-<%@page import="java.sql.*" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -36,6 +35,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="http://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 	    rel='stylesheet' type='text/css'>
+<style>
+	#myloc{color:red;}
+</style>
 </head>
 
 <body>
@@ -198,51 +200,171 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="tittle_head_w3ls">
 				<h3 class="tittle three">LogIn to your Account </h3>
 			</div>
-			<!---728x90--->
-<script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
-<div style='margin: 0 auto;text-align: center;margin-top: 5px;'><script>
-var allowedNumberOfEboundDynamicAdds = 4;
-var sizesEboundDynamicAdsDesktop = ['728x90'];
-var sizesEboundDynamicAdsTablet = ['728x90'];
-var sizesEboundDynamicAdsMobile = ['320x100'];
-eboundAdsTagByDevice(sizesEboundDynamicAdsDesktop,sizesEboundDynamicAdsTablet,sizesEboundDynamicAdsMobile, 'ebound_header_tag');
-
-if(typeof user_tag_config == 'undefined'){
-	var user_tag_config = {};
-}
-user_tag_config['ebound_header_tag'] = {};
-user_tag_config['ebound_header_tag']['desktop'] = {};
-user_tag_config['ebound_header_tag']['desktop']['cpm'] = '';
-user_tag_config['ebound_header_tag']['desktop']['adsCode'] = '';
-user_tag_config['ebound_header_tag']['tablet'] = {};
-user_tag_config['ebound_header_tag']['tablet']['cpm'] = '';
-user_tag_config['ebound_header_tag']['tablet']['adsCode'] = '';
-user_tag_config['ebound_header_tag']['mobile'] = {};
-user_tag_config['ebound_header_tag']['mobile']['cpm'] = '';
-user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
-</script></div>
+			
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post">
-							<input type="email" name="email" placeholder="E-mail" required="">
-							<input type="password" name="password" placeholder="Password" required="">
+						<form action="direct.jsp" method ="post" name="myform">
+							<input type="email" name="email" id="uname" placeholder="E-mail" required>
+							<input type="password" name="password" id="pass" placeholder="Password" required>
+							<p id="error"></p>
 							<div class="tp">
-								<input type="submit" value="Login">
+								<input type="submit" name="submit" value="Login"></a>
 							</div>
 						</form>
 					</div>
 					<div class="login-social-grids">
 						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#" ><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-rss"></i></a></li>
 						</ul>
 					</div>
-					<p><a href="register.html"> Don't have an account?</a></p>
+					<p><a href="Registration.jsp" > Don't have an account?</a></p>
 				</div>
 			</div>
+			<!-- <div id="myModal" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+												Modal content
+												<div class="modal-content">
+												  <div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title">SIGNUP HERE</h4>
+												  </div>
+												  <div class="modal-body">
+												  
+												  <div class="inner_sec_grids_info_w3ls">
+				<div class="signin-form">
+					<div class="login-form-rec">
+												  <form action="Login.jsp" >
+							<input type="text" name="firstname" placeholder="First Name" required="">
+							<input type="text" name="lastname" placeholder="Last Name" required="">
+							<select id="country13" name ="gender" onchange="change_country(this.value)" class="frm-field required">
+														<option value="gender">Gender</option>
+													 <option value="Male">Male</option>
+														<option value="Female">Female</option>
+														<option value="Others">Others</option>     
+										</select>
+							<input type="text" name="date" placeholder="DD-MM-YYYY" required="">
+							<select id="country13" name="category" onchange="change_country(this.value)" class="frm-field required">
+														<option value="null">Category</option>
+													 <option value="Education">Education</option>
+														<option value="Health">Health</option>
+														<option value="Women and Child">Women and Child</option>     
+										</select>
+							<input type="text" name="phone" placeholder="Enter your Phone Number" required="">
+							<input type="email" name="email" placeholder="Enter your Email Address" required="">
+							<input type="password" name="password" id="password1" placeholder="Password" required="">
+							<input type="password" name="password" id="password2" placeholder="Confirm Password" required="">
+												
+							<a href="#"><input type="submit" name="register" value="Register"></a>
+						</form>
+					</div>
+					<p class="reg"> By clicking register, I agree to your terms</p>
+
+				</div>
+			</div>
+												  </div>
+												  
+												    <div class="modal-footer">
+													
+											
+												  </div> -->
+												</div>
+
+											  </div>
+											</div>
+											</div>
 			<!---728x90--->
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import = "java.sql.*" %>
+<%-- <!-- Registration -->
+
+<%
+ 
+  
+		String FName = request.getParameter("firstname");
+		System.out.println(FName);
+		String LName = request.getParameter("lastname");
+		String Gender = request.getParameter("gender");
+		String Dob = request.getParameter("date");
+		String Category = request.getParameter("category");
+		String Phone = request.getParameter("phone");
+		String EmailID = request.getParameter("email");
+		String Password = request.getParameter("password");
+		String Cnfpass = request.getParameter("password");
+		String Role = "User";
+		
+		if(request.getParameter("register")=="Register")
+			
+			try
+			{
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+				Statement stmt = con.createStatement();
+				
+				String sql = "insert into registration(FirstName,LastName,Gender,Dob,Category,PhoneNumber,Email,Password,ConfirmPassword,Role) values('"+FName+"','"+LName+"','"+Gender+"','"+Dob+"','"+Category+"','"+Phone+"','"+EmailID+"','"+Password+"','"+Cnfpass+"','"+Role+"')";
+				System.out.println(sql);
+				int i = stmt.executeUpdate(sql);
+				if(i>0)
+				{
+					System.out.println("Registration Successfull");
+				}
+				else
+				{
+					System.out.println("Registration Failed");
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+		 /* } */
+		
+%>
+<!-- Registration -->  --%>
+
+<%-- <! -- Login -->
+ <%
+	String Email = request.getParameter("email");
+	String Pass = request.getParameter("password");
+			
+	String em=null;
+	String ps=null;
+	
+	  
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
+			Statement stmt = con.createStatement();
+			
+			String sql = "SELECT Email,Password FROM registration where Email = '"+Email+"' AND Password = '"+Pass+"'";
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next())
+			{
+		        //Retrieve by column name
+		         
+			     em = rs.getString("Email");
+			     ps = rs.getString("Password");
+			         
+			     System.out.println("Email = "+em);
+			     System.out.println("Pass = "+ps);
+			}
+			session.setAttribute("email",Email);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		 --%>
+		
+	  
+
+<! -- Login -->
+
 <script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
 <div style='margin: 0 auto;text-align: center;margin-top: 5px;'><script>
 var allowedNumberOfEboundDynamicAdds = 4;
@@ -352,67 +474,12 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- password-script -->
 	<script type="text/javascript">
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
-
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
+		
+		
+		
+		
 	</script>
 	<!-- //password-script -->
-	<%
-		String em=request.getParameter("email");
-		String pass=request.getParameter("password");
-		String rol=null;
-
-
-	try
-	{
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/myproject","root","");
-		Statement stmt=con.createStatement();
-		String sql = "SELECT role FROM registration where email = '"+em+"' AND password='"+pass+"'";
-		ResultSet rs = stmt.executeQuery(sql);
-		while(rs.next())
-		{
-	        //Retrieve by column name
-	        rol=rs.getString("role");
-
-	        if(rol.equals("USER"))
-			{
-				response.sendRedirect("UserHome.jsp");
-				System.out.println(rol);
-			}
-			if(rol.equals("ADMIN"))
-			{
-				response.sendRedirect("AdminHome.jsp");
-				System.out.println(rol);
-			}
-			if(rol.equals("SUPERADMIN"))
-			{
-				response.sendRedirect("SuperAdminHome.jsp");
-				System.out.println(rol);
-			}
-				
-		}
-
-	}  
-		
-	catch(Exception e)
-	{
-		System.out.println(e);
-	}
-	
-
-%>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 
