@@ -167,10 +167,11 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post">
+						<form action="#" method="post" name="myform">
 							<input type ="radio" name="education"  value="fresh" required>Fresh
 							<input type ="radio" name="education" value="renew" required>Renew		
-							<input type ="text" name="adno" placeholder="Enter Admission number" onchange="admn(this)" required>
+							<input type ="text" name="adno" placeholder="Enter Admission number" onfocusout = "validateadmn(this)" required>
+							<p id="adno"></p>
 							<select id="country13" name="quali" onchange="change_country(this.value)" class="frm-field required">
 								<option value="Choose your Qualification">Choose your Qualification</option>
 								<option value="SSLC">SSLC</option>
@@ -178,15 +179,21 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 								<option value="UG">UG</option>
 								<option value="PG">PG</option>     
 							</select>
-							<input type ="text" name="schname" placeholder="Enter Name Of Institute" onchange="school(this)" required>
-							<input type ="text" name="schphn" placeholder="Enter Institute Contact Number" onchange="phone(this)" required>
-							<input type ="text" name="fee" placeholder="Enter fees/year" onchange="fees(this)" required>	
-							<input type ="radio" name="type"  value="Hostler" onchange="" required>Hostler
-							<input type ="radio" name="type" value="Dayscholar" onchange="" required>Day Scholar
+							<input type ="text" name="schname" placeholder="Enter Name Of Institute" onfocusout = "validateschool(this)" required>
+							<p id="schname"></p>
+							<input type ="text" name="schphn" placeholder="Enter Institute Contact Number" onfocusout = "validatephone(this)" required>
+							<p id="schphn"></p>
+							<input type ="text" name="fee" placeholder="Enter fees/year" onfocusout="validatefees(this)" required>
+							<p id="fee"></p>	
+							<input type ="radio" name="type"  value="Hostler" required>Hostler
+							<input type ="radio" name="type" value="Dayscholar" required>Day Scholar
 							<b><input type="text" placeholder="Previously completed Course Details" readonly></b>
-							<input type ="text" name="regno" placeholder="Enter Register Number" onchange="reg(this)" required>
-							<input type ="text" name="passp" placeholder="Enter Percentage" onchange="perc(this)" required>
-							<input type ="text" name="passyr" placeholder="Enter year of passing" onchange="year(this)" required>
+							<input type ="text" name="regno" placeholder="Enter Register Number" onfocusout="validatereg(this)" required>
+							<p id="regno"></p>
+							<input type ="text" name="passp" placeholder="Enter Percentage" onfocusout="validateperc(this)" required>
+							<p id="passp"></p>
+							<input type ="text" name="passyr" placeholder="Enter year of passing" onfocusout="validateyear(this)" required>
+							<p id="passyr"></p>
 							<div class="tp">
 								<input type="submit" name="user" value="Apply">
 							</div>
@@ -245,89 +252,125 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- password-script -->
-<script type="text/javascript">
-function phone(inp)
+<script>
+function validatephone(inp)
 {
 	var r = /^[0-9]{4}[-][0-9]{6,8}$/;
 	if(inp.value.match(r))
 	{
-			
+		document.myform.fee.focus();
+		document.getElementById("schphn").innerHTML="";
+		return true;
 	}
 	else
 	{
-		alert('Incorrect Phone Number');
+		schphn.style.color='Red';
+		document.getElementById("schphn").innerHTML="Please include - in between";
+		document.myform.schphn.focus();
+		return false;
 	}
 }
-function school(inp)
+function validateschool(inp)
 {
-	var r=/^[a-zA-Z]+$/;
+	var r=/^[A-Za-z\s]+$/;
 	if(inp.value.match(r))
 	{
-
+		document.myform.schphn.focus();
+		document.getElementById("schname").innerHTML = "";
+		return true;
 	}
 	else
 	{
-	alert('Enter a valid school name');
+		//alert('Enter a valid school name');
+		schname.style.color='Red';
+		document.getElementById("schname").innerHTML="Enter the name of institute";
+	 	document.myform.schname.focus();
+	 	return false;
 	}
 }
-function perc(inp)
+function validateperc(inp)
 {
 	var r=/^[0-9]{1,2}|[0-9]{1,3}$/;
 	if(inp.value.match(r))
 	{
-		
+		document.myform.passyr.focus();
+		document.getElementById("passp").innerHTML = "";
+		return true;
 	}
 	else
 	{
-		alert('Invalid percentage format');
+		 passp.style.color='Red';
+		 document.getElementById("passp").innerHTML = "Use numbers only";
+		 document.myform.passp.focus();
+		 return false;
 	}
 }
-function fees(inp)
+function validatefees(inp)
 {
 	var r=/^[0-9]{5}$/;
 	if(inp.value.match(r))
 	{
-		
+		//document.myform.type.focus();
+		document.getElementById("fee").innerHTML = "";
+		return true;
 	}
 	else
 	{
-		alert('Enter a number only');
+		 fee.style.color='Red';
+		 document.getElementById("fee").innerHTML = "Enter only numbers";
+		 document.myform.fee.focus();
+		 return false;
 	}
 }
-function admn(inp)
+function validateadmn(inp)
+{
+	var r=/^[0-9]{4}$/;
+	if(inp.value.match(r))
+	{
+		document.myform.quali.focus();
+		document.getElementById("adno").innerHTML = "";
+		return true;
+	}
+	else
+	{
+		//alert('Invalid admission number format');
+		adno.style.color='Red';
+		document.getElementById("adno").innerHTML = "Enter a valid admission number"
+		document.myform.adno.focus();
+		return false;
+	}
+}
+function validateyear(inp)
+{
+	var r = /^(19|20)\d{2}$/;
+	if(inp.value.match(r))
+	{
+		document.getElementById("passyr").innerHTML = "";
+		return true;
+	}
+	else
+	{
+		passyr.style.color = 'Red';
+		document.getElementById("passyr").innerHTML = "Enter a valid year";
+		document.myform.passyr.focus();
+		return false;
+	}
+}
+function validatereg(inp)
 {
 	var r=/^[1-9]{7}$/;
 	if(inp.value.match(r))
 	{
-		
+		document.myform.passp.focus();
+		document.getElementById("regno").innerHTML = "";
+		return true;
 	}
 	else
 	{
-		alert('Invalid admission number format');
-	}
-}
-function year(inp)
-{
-	var r = ^(19|20)\d{2}$;
-	if(inp.value.match(r))
-	{
-	
-	}
-	else
-	{
-		alert('Invalid Year');
-	}
-}
-function reg(inp)
-{
-	var r=/^[1-9]{10}$/;
-	if(inp.value.match(r))
-	{
-		
-	}
-	else
-	{
-		alert('Enter a valid registration number');
+		regno.style.color='Red';
+		document.getElementById("regno").innerHTML = "Invalid registration number. Use numbers only";
+		document.myform.regno.focus();
+		return false;
 	}
 }
 		
