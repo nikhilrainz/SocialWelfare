@@ -166,10 +166,14 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post">
-							<input type="text" name = "bank" placeholder ="Enter your Bank Name" onchange ="bank(this)">
-							<input type="text" name = "branch" placeholder ="Enter your Branch" onchange = "branch(this)">
-							<input type="text" name = "acno" placeholder ="Enter your Account Number" onchange = "checkaccountnumber(this)">
+							<input type="text" name = "bank" placeholder ="Enter your Bank Name" onfocusout ="bank(this)">
+							<p id="bank"></p>
+							<input type="text" name = "branch" placeholder ="Enter your Branch" onfocusout = "branch(this)">
+							<p id="branch"></p>
+							<input type="text" name = "acno" placeholder ="Enter your Account Number" onfocusout = "checkaccountnumber(this)">
+							<p id="acno"></p>
 							<input type="text" name = "ifsc" placeholder ="Enter your IFSC CODE" onchange="checkifsc(this)">
+							<p id="ifsc"></p>
 							<div class="tp">
 								<input type="submit" name="user" value="Apply">
 								
@@ -213,6 +217,20 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	String Passyr="";
 	/* Postmatric */
 	
+	/* Meritcum */
+	String Educa="";
+	String Admno="";
+	String Qualif="";
+	String SchName="";
+	String SchPhn="";
+	String Feesyr="";
+	String Typec="";
+	String Regnumber="";
+	String Passperc="";
+	String Passyear="";
+	/* Meritcum */
+
+	
 	/* Getting Attributes from First page */
 	String Guardian = (String) session.getAttribute("guardian");
 	String Address = (String) session.getAttribute("address");
@@ -233,7 +251,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		Fees = (String) session.getAttribute("fees");
 		Typea = (String) session.getAttribute("type");
 	}
-	else
+	else if(id1.equals("2"))
 	{
 		Educ = (String) session.getAttribute("education");
 		Adno = (String) session.getAttribute("adno");
@@ -245,6 +263,20 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		Regno = (String) session.getAttribute("regno");
 		Passp = (String) session.getAttribute("passp");
 		Passyr = (String) session.getAttribute("passyr");
+	}
+	else
+	{
+		Educa = (String) session.getAttribute("education");
+		Admno = (String) session.getAttribute("admno");
+		Qualif = (String) session.getAttribute("quali");
+		SchName = (String) session.getAttribute("schname");
+		SchPhn = (String) session.getAttribute("schphn");
+		Feesyr = (String) session.getAttribute("fee");
+		Typec = (String) session.getAttribute("type");
+		Regnumber = (String) session.getAttribute("regno");
+		Passperc = (String) session.getAttribute("passp");
+		Passyear = (String) session.getAttribute("passyr");
+	
 	}
 	
 	/*Bank Details*/
@@ -267,7 +299,23 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			
 			if(id1.equals("1"))
 			{
-				String sql = "insert into prematric(Guardian,Address,Pin,State,Id,Idno,Education,Admno,Qualification,Schoolname,Schoolphn,Fee,Type,Regno,Passperc,Passyr,Bank,Branch,Accno,Ifsc) values('"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Edu+"','"+Admn+"','"+Cls+"','"+School+"','"+Schph+"','"+Perc+"','"+Fees+"','"+Typea+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
+				String sql = "insert into prematric(Email,Guardian,Address,Pin,State,Id,Idno,Education,Admno,Class,School,Schoolph,Percentage,Fees,Type,Bank,Branch,Accno,Ifsc) values('"+ml+"','"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Edu+"','"+Admn+"','"+Cls+"','"+School+"','"+Schph+"','"+Perc+"','"+Fees+"','"+Typea+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
+				System.out.println(sql);
+				int i = stmt.executeUpdate(sql);
+			
+				if(i>0)
+				{
+					System.out.println("Application Submitted Successfully");
+					//response.sendRedirect("ViewAppliedScheme.jsp");	
+				}
+				else
+				{
+					System.out.println("Failed");
+				}
+			}
+			else if(id1.equals("2"))
+			{
+				String sql = "insert into postmatric(Email,Guardian,Address,Pin,State,Id,Idno,Education,Admno,Qualification,Schoolname,Schoolphn,Fee,Type,Regno,Passperc,Passyr,Bank,Branch,Accno,Ifsc) values('"+ml+"','"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Educ+"','"+Adno+"','"+Quali+"','"+Schname+"','"+Schphn+"','"+Fee+"','"+Typeb+"','"+Regno+"','"+Passp+"','"+Passyr+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
 				System.out.println(sql);
 				int i = stmt.executeUpdate(sql);
 			
@@ -283,7 +331,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			}
 			else
 			{
-				String sql = "insert into postmatric(Guardian,Address,Pin,State,Id,Idno,Education,Admno,Qualification,Schoolname,Schoolphn,Fee,Type,Regno,Passperc,Passyr,Bank,Branch,Accno,Ifsc) values('"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Educ+"','"+Adno+"','"+Quali+"','"+Schname+"','"+Schphn+"','"+Fee+"','"+Typeb+"','"+Regno+"','"+Passp+"','"+Passyr+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
+				String sql = "insert into meritcum(Email,Guardian,Address,Pin,State,Id,Idno,Education,Admno,Qualification,Schoolname,Schoolphn,Fee,Type,Regno,Passperc,Passyr,Bank,Branch,Accno,Ifsc) values('"+ml+"','"+Guardian+"','"+Address+"','"+Pin+"','"+State+"','"+Id+"','"+Idno+"','"+Educa+"','"+Admno+"','"+Qualif+"','"+SchName+"','"+SchPhn+"','"+Feesyr+"','"+Typec+"','"+Regnumber+"','"+Passperc+"','"+Passyear+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
 				System.out.println(sql);
 				int i = stmt.executeUpdate(sql);
 			
@@ -296,12 +344,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				{
 					System.out.println("Failed");
 				}
+
 			}
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
 		}
+		/* Query for inserting all the values into tables based on ApplyId */
+		
+		/* Status update */
 		try
 		{	Class.forName("com.mysql.jdbc.Driver");
 			Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
@@ -329,7 +381,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		
 		response.sendRedirect("ViewUserScheme.jsp");
 		
-	}	
+	}
+	/* Status update */
 %>
 
 <!-- js -->
@@ -337,53 +390,73 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 <!-- password-script -->
 <script type="text/javascript">
 		
-		function bank(inp)
-		{
-			var r=/^[a-zA-Z]+$/;
-			if(inp.value.match(r))
-			{
-
-			}
-			else
-			{
-			alert('Invalid Bank Name');
-			}
-		}
-		function checkifsc(inp) 
-		{
-			var r=/^[A-Za-z]{4}\d{7}$/;
-			if(inp.value.match(r))
-			{
-			}
-			else
-			{
-				alert('Invalid IFSC Code');
-			}
-		}
-		function branch(inp)
-		{
-			var r=/^[a-zA-Z]+$/;
-			if(inp.value.match(r))
-			{
-
-			}
-			else
-			{
-			alert('Incorrect Branch Name');
-			}	        
-	   }
-	function checkaccountnumber(inp) 
+function bank(inp)
+{
+	var r=/^[a-zA-Z]+$/;
+	if(inp.value.match(r))
 	{
-		var r=/^[0-9]+$/;
-		if(inp.value.match(r))
-		{
-
-		}
-		else
-		{
-			alert('Incorrect Account Number');
-		}      
+		document.myform.branch.focus();
+		document.getElementById("bank").innerHTML = "";
+		return true;
 	}
+	else
+	{
+		bank.style.color='Red';
+		document.getElementById("bank").innerHTML = "Enter your Bank Name";
+		document.myform.bank.focus();
+		return false;
+	}
+}
+function checkifsc(inp) 
+{
+	var r=/^[A-Za-z]{4}\d{7}$/;
+	if(inp.value.match(r))
+	{
+		document.getElementById("ifsc").innerHTML="";
+		return true;
+	}
+	else
+	{
+		ifsc.style.color='Red';
+		document.getElementById("ifsc").innerHTML = "Enter a valid IFSC Code";
+		document.myform.ifsc.focus();
+		return false;
+	}
+}
+function branch(inp)
+{
+	var r=/^[a-zA-Z]+$/;
+	if(inp.value.match(r))
+	{
+		document.myform.acno.focus();
+		document.getElementById("branch").innerHTML = "";
+		return true;
+	}
+	else
+	{
+		branch.style.color='Red';
+		document.getElementById("branch").innerHTML = "Enter your Branch Name";
+		document.myform.branch.focus();
+		return false;
+	}	        
+}
+function checkaccountnumber(inp) 
+{
+	var r=/^\d{12}$/;
+	if(inp.value.match(r))
+	{
+		document.myform.ifsc.focus();
+		document.getElementById("acno").innerHTML = "";
+		return true;
+	}
+	else
+	{
+		acno.style.color='Red';
+		document.getElementById("acno").innerHTML = "Enter a 12 Digit Account Number!!";
+		document.myform.acno.focus();
+		return false;
+	}      
+}
 </script>
 
 </body>
