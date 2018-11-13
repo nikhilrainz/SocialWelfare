@@ -166,8 +166,10 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post" name = "myform">
-							<input type="text" name = "beneficiary" placeholder="Enter Beneficiary Aadhar Number" onchange = "checkpattern(this)" required>
-							<input type="text" name = "benefname" placeholder="Name of the Beneficiary as in Aadhar Card" required>
+							<input type="text" name = "beneficiary" placeholder="Enter Beneficiary Aadhar Number" onfocusout = "checkpattern(this)" required>
+							<p id="beneficiary"></p>
+							<input type="text" name = "benefname" placeholder="Name of the Beneficiary as in Aadhar Card" onfocusout = "validatename(this)" required>
+							<p id="benefname"></p>
 							<select id="country13" name="benefproof" onchange="change_country(this.value)" class="frm-field required">
 								<option value="Proof of Identity">Proof of Identity</option>
 								<option value="aadhar" onchange="checklicense(this)">Driving License</option>
@@ -175,8 +177,10 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 								<option value="pan" onchange = "checkpan(this)">Pan</option>     
 							</select>
 							<input type="text" name = "benefidno" placeholder="Enter your Identity Number" required>
-							<input type="text" name = "husband" placeholder="Enter your Husband Aadhar Number" onchange = "checkpattern1(this)" required>
-							<input type="text" name = "husname" placeholder="Name of Husband as in Aadhar Card" required>
+							<input type="text" name = "husband" placeholder="Enter your Husband Aadhar Number" onfocusout = "checkpattern1(this)" required>
+							<p id="husband"></p>
+							<input type="text" name = "husname" placeholder="Name of Husband as in Aadhar Card" onfocusout = "checkname(this)" required>
+							<p id="husname"></p>
 							<select id="country13" name="husproof" onchange="change_country(this.value)" class="frm-field required">
 								<option value="Proof of Identity">Proof of Identity</option>
 								<option value="aadhar" onchange="checklicense1(this)">Driving License</option>
@@ -256,26 +260,71 @@ function checkpattern(inp) {
 	var r=/^\d{12}$/;
 	if(inp.value.match(r))
 	{
-
+		document.myform.benefname.focus();
+		document.getElementById("beneficiary").innerHTML="";
+		return true;
 	}
 	else
 	{
-	alert('Enter a Valid Aadhar Number');
-	document.myform.beneficiary.focus();
+		//alert('Enter a Valid Aadhar Number');
+		beneficiary.style.color='Red';
+		document.getElementById("beneficiary").innerHTML="Enter a Valid Aadhar Number";
+		document.myform.beneficiary.focus();
+		return false;
 	}
 }
-function checkpattern1(inp) {
+function validatename(inp)
+{
+	var r = /^[A-Za-z]+$/;
+	if(inp.value.match(r))
+	{
+		document.myform.benefproof.focus();
+		document.getElementById("benefname").innerHTML=""
+		return true;
+	}
+	else
+	{
+		benefname.style.color='Red';
+		document.getElementById("benefname").innerHTML="Enter a Valid Name";
+		document.myform.benefname.focus();
+		return false;
+	}
+}  
+function checkpattern1(inp) 
+{
 	var r=/^\d{12}$/;
 	if(inp.value.match(r))
 	{
-
+		document.myform.husname.focus();
+		document.getElementById("husband").innerHTML="";
+		return true;
 	}
 	else
 	{
-	alert('Enter a Valid Aadhar Number');
-	document.myform.husband.focus();
+		husband.style.color='Red';
+		document.getElementById("husband").innerHTML="Enter a Valid Aadhar Number";
+		document.myform.husband.focus();
+		return false;
 	}
 }
+function checkname(inp)
+{
+	var r = /^[A-Za-z]+$/;
+	if(inp.value.match(r))
+	{
+		document.myform.husproof.focus();
+		document.getElementById("husname").innerHTML=""
+		return true;
+	}
+	else
+	{
+		husname.style.color='Red';
+		document.getElementById("husname").innerHTML="Enter a Valid Name";
+		document.myform.husname.focus();
+		return false;
+	}
+}
+
 function checklicense(inp) {
 	var r=/^[0-1]\t[0-9]\td{4}$/;
 	if(inp.value.match(r))
@@ -415,9 +464,9 @@ function validatedate(inputText)
 	 }
 	 else
 	 {
-	  alert("Invalid date format!");
-	  document.myform.LMP.focus();
-	  return false;
+	 	alert("Invalid date format!");
+	  	document.myform.LMP.focus();
+	  	return false;
 	 }
 }
 </script>
