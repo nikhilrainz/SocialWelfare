@@ -165,10 +165,12 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post">
-							<input type="text" name = "guardian" placeholder="Enter your Guardian Name" required>
+						<form action="#" method="post" name="myform">
+							<input type="text" name = "guardian" placeholder="Enter your Guardian Name" onfocusout = "checkname(this)" required>
+							<p id="guardian"></p>
 							<textarea name = "address" placeholder="Enter your Communication Address" required></textarea>
-							<input type="text" name = "pin" placeholder="Enter your Pincode" required>
+							<input type="text" name = "pin" placeholder="Enter your Pincode" onfocusout = "checkpin(this)" required>
+							<p id="pin"></p>
 							<select id="country13" name="state" onchange="change_country(this.value)" class="frm-field required">
 														<option value="Choose your State">State</option>
 													 <option value="KERALA">Kerala</option>
@@ -258,41 +260,41 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 <!-- js -->
 <script>
-function checkpattern(inp) {
-	var r=/^\d{12}$/;
-	if(inp.value.match(r))
-	{
-
-	}
-	else
-	{
-	alert('Enter a Valid Aadhar Number');
-	}
-}
-function checkpan(inp)
+function checkname(inp)
 {
-	var r=/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+	var r=/^[A-Za-z\s]+$/;
 	if(inp.value.match(r))
 	{
-
+		document.myform.address.focus();
+		document.getElementById("guardian").innerHTML=""
+		return true;
 	}
 	else
 	{
-	alert('Enter a Valid Pan Number');
+		guardian.style.color='Red';
+		document.getElementById("guardian").innerHTML="Enter your Name";
+		document.myform.guardian.focus();
+		return false;
 	}
 }
-function checkelection(inp)
+function checkpin(inp)
 {
-	var r = /^([a-zA-Z]){3}([0-9]){7}$/;
+	var r = /^[1-9][0-9]{5}$/;
 	if(inp.value.match(r))
 	{
-	
+		document.myform.state.focus();
+		document.getElementById("pin").innerHTML=""
+		return true;
 	}
 	else
 	{
-		alert("Enter a Valid Election Id");
+		pin.style.color='Red';
+		document.getElementById("pin").innerHTML="Enter a 6 digit valid pin number";
+		document.myform.pin.focus();
+		return false;
 	}
 }
+
 </script>
 
 </body>
