@@ -165,15 +165,21 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post">
-							<input type="text" name = "mother" placeholder ="Enter Mother's Full Name " onchange="" required>
-							<input type="text" name = "aadhar" placeholder ="Enter Mother's Aadhar number" onchange = "" required>
-							<input type="text" name = "mob" placeholder ="Enter Mobile Number" onchange = " phone(this)" required>
-							<input type="text" name = "email" placeholder ="Enter E-mail Id" onchange =""  required>
-							<input type="text" name = "district" placeholder ="Enter your District" onchange = "" required>
-							<input type="text" name = "state" placeholder ="Enter your State" onchange = "" required>
-							<input type="text" name = "address" placeholder = "Enter your Address" required>
-							<input type="text" name = "pin" placeholder = "Enter your Pincode" required>
+						<form action="#" method="post" name="myform">
+							<input type="text" name = "mother" placeholder ="Enter Mother's Full Name" onfocusout = "checkname(this)"  required>
+							<p id = "mother"></p>
+							<input type="text" name = "aadhar" placeholder ="Enter Mother's Aadhar number" onfocusout = "validateid(this)" required>
+							<p id = "aadhar"></p>
+							<input type="text" name = "mob" placeholder ="Enter Mobile Number" onfocusout = "validatemob(this)" required>
+							<p id ="mob"></p>
+							<input type="email" name = "emailid" placeholder ="Enter E-mail Id" required>
+							<input type="text" name = "district" placeholder ="Enter your District" onfocusout = "validateplace(this)" required>
+							<p id ="district"></p>
+							<input type="text" name = "state" placeholder ="Enter your State" onfocusout = "validatestate(this)" required>
+							<p id = "state"></p>
+							<textarea name = "address" placeholder="Enter your Communication Address" required></textarea>
+							<input type="text" name = "pin" placeholder = "Enter your Pincode" onfocusout = "validatepin(this)" required>
+							<p id ="pin"></p>
 							<div class="tp">
 								<input type="submit" name="user" value="Next">
 							</div>
@@ -188,15 +194,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 <% 
 	String id1 = request.getParameter("id");
-	System.out.println("Applyid="+id1);
+	System.out.println("Apply Id = "+id1);
 	session.setAttribute("id",id1);
+	
 	String ml = (String) session.getAttribute("email");
 	System.out.println("Email = "+ml);
 	
 	String Mother = request.getParameter("mother");
 	String Aadhar = request.getParameter("aadhar");
 	String Mobile = request.getParameter("mob");
-	String Email = request.getParameter("email");
+	String Email = request.getParameter("emailid");
 	String District = request.getParameter("district");
 	String State= request.getParameter("state");
 	String Address = request.getParameter("address");
@@ -204,7 +211,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	
 	String submit = request.getParameter("user");
 	
-	/* Pre - Matric Details */
+	/* JSY Basic Details */
 	
 	if(submit!=null)
 	{
@@ -214,99 +221,131 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 			Statement stmt = con.createStatement();
 			
-			session.setAttribute("mom",Mother);
-			session.setAttribute("aad",Aadhar);
+			session.setAttribute("mother",Mother);
+			session.setAttribute("aadhar",Aadhar);
 			session.setAttribute("mob",Mobile);
-			session.setAttribute("em",Email);
-			session.setAttribute("dis",District);
-			session.setAttribute("sta",State);
-			session.setAttribute("add",Address);
+			session.setAttribute("emailid",Email);
+			session.setAttribute("district",District);
+			session.setAttribute("state",State);
+			session.setAttribute("address",Address);
 			session.setAttribute("pin",Pin);
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
 		}
-		response.sendRedirect("Serviceinfo.jsp");
-		/* Pre - Matric Details */
+		response.sendRedirect("Serviceinform.jsp");
+		/* JSY Basic Details */
 		
 	}	
 %>
 
 <!-- js -->
 <script>
-	function phone(inp)
+function checkname(inp)
+{
+	var r=/^[A-Za-z\s]+$/;
+	if(inp.value.match(r))
 	{
-		var r = /^[0-9]{4}[-][0-9]{6,8}$/;
-		if(inp.value.match(r))
-		{
-				
-		}
-		else
-		{
-			alert('Incorrect Phone Number');
-		}
+		document.myform.aadhar.focus();
+		document.getElementById("mother").innerHTML=""
+		return true;
 	}
-	function school(inp)
+	else
 	{
-		var r=/^[a-zA-Z]+$/;
-		if(inp.value.match(r))
-		{
-
-		}
-		else
-		{
-		alert('Enter a valid school name');
-		}
+		mother.style.color='Red';
+		document.getElementById("mother").innerHTML="Enter your Name";
+		document.myform.mother.focus();
+		return false;
 	}
-	function perc(inp)
+}
+function validateid(inp) 
+{
+	var r=/^\d{12}$/;
+	if(inp.value.match(r))
 	{
-		var r=/^[0-9]{1,2}|[0-9]{1,3}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Invalid percentage format');
-		}
+		document.myform.mob.focus();
+		document.getElementById("aadhar").innerHTML="";
+		return true;
 	}
-	function fees(inp)
+	else
 	{
-		var r=/^[0-9]{5}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Enter a number only');
-		}
+		//alert('Enter a Valid Aadhar Number');
+		aadhar.style.color='Red';
+		document.getElementById("aadhar").innerHTML="Enter a Valid Aadhar Number";
+		document.myform.aadhar.focus();
+		return false;
 	}
-	function cls(inp)
+}
+function validatepin(inp)
+{
+	var r = /^[1-9][0-9]{5}$/;
+	if(inp.value.match(r))
 	{
-		var r=/^[1-9]|10$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Format not allowed');
-		}
+		document.myform.state.focus();
+		document.getElementById("pin").innerHTML=""
+		return true;
 	}
-	function admn(inp)
+	else
 	{
-		var r=/^[1-9]{7}$/;
-		if(inp.value.match(r))
-		{
-			
-		}
-		else
-		{
-			alert('Invalid format');
-		}
+		pin.style.color='Red';
+		document.getElementById("pin").innerHTML="Enter a 6 digit valid pin number";
+		document.myform.pin.focus();
+		return false;
 	}
+}
+function validatemob(inputtxt)
+{
+	  var phoneno = /^[789]\d{9}$/;
+	  if(inputtxt.value.match(phoneno))
+	  {
+		  document.myform.emailid.focus();
+	      document.getElementById("mob").innerHTML=""
+		  return true;
+	  }
+	  else
+	  {
+	     //alert('Invalid Phone Number');
+	     mob.style.color='Red';
+	     document.getElementById("mob").innerHTML="Enter a valid mobile number";
+	     document.myform.mob.focus();
+	     return false;
+	  }
+}
+function validateplace(inp)
+{
+	var r=/^[A-Za-z]+$/;
+	if(inp.value.match(r))
+	{
+		document.myform.state.focus();
+		document.getElementById("district").innerHTML=""
+		return true;
+	}
+	else
+	{
+		district.style.color='Red';
+		document.getElementById("district").innerHTML="Enter your District";
+		document.myform.district.focus();
+		return false;
+	}
+}
+function validatestate(inp)
+{
+	var r=/^[A-Za-z]+$/;
+	if(inp.value.match(r))
+	{
+		document.myform.address.focus();
+		document.getElementById("state").innerHTML=""
+		return true;
+	}
+	else
+	{
+		state.style.color='Red';
+		document.getElementById("state").innerHTML="Enter your State";
+		document.myform.state.focus();
+		return false;
+	}
+}
 </script>
 </body>
 
