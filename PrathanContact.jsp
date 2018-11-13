@@ -165,7 +165,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post">
+						<form action="#" method="post" name="myform">
 							<select id="country13" name="cat" onchange="change_country(this.value)" class="frm-field required">
 								<option value="Choose your Category">Choose your Category</option>
 								<option value="General">General</option>
@@ -173,15 +173,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 								<option value="ST">ST</option>     
 							</select>
 							<textarea name = "address" placeholder="Enter your Communication Address" required></textarea>
-							<input type="text" name = "pin" placeholder="Enter your Pincode" required>
+							<input type="text" name = "pin" placeholder="Enter your Pincode" onfocusout = "checkpin(this)" required>
+							<p id="pin"></p>
 							<select id="country13" name="state" onchange="change_country(this.value)" class="frm-field required">
 								<option value="Choose your State">State</option>
 								<option value="KERALA">Kerala</option>
 								<option value="TN">Tamil Nadu</option>
 								<option value="KN">Karnataka</option>     
 							</select>
-							<input type="text" name = "mob" placeholder="Enter your Mobile Number" onchange = "Phone(this)" required>
-							
+							<input type="text" name = "mob" placeholder="Enter your Mobile Number" onfocusout = "phone(this)" required>
+							<p id="mob"></p>
 							<div class="tp">
 								<input type="submit" name="user" value="Next">
 							</div>
@@ -233,114 +234,41 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 <!-- js -->
 <script>
-function checkpattern(inp) {
-	var r=/^\d{12}$/;
+function checkpin(inp)
+{
+	var r = /^[1-9][0-9]{5}$/;
 	if(inp.value.match(r))
 	{
-
+		document.myform.state.focus();
+		document.getElementById("pin").innerHTML=""
+		return true;
 	}
 	else
 	{
-	alert('Enter a Valid Aadhar Number');
+		pin.style.color='Red';
+		document.getElementById("pin").innerHTML="Enter a 6 digit valid pin number";
+		document.myform.pin.focus();
+		return false;
 	}
 }
-function checkpan(inp)
-{
-	var r=/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
-	if(inp.value.match(r))
-	{
-
-	}
-	else
-	{
-	alert('Enter a Valid Pan Number');
-	}
-}
-function checkelection(inp)
-{
-	var r = /^([a-zA-Z]){3}([0-9]){7}$/;
-	if(inp.value.match(r))
-	{
-	
-	}
-	else
-	{
-		alert("Enter a Valid Election Id");
-	}
-}
-function validatedate(inputText)
-{
-	 var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
-// Match the date format through regular expression
-	 if(inputText.value.match(dateformat))
-	 {
-	  document.form1.date.focus();
-	  //Test which seperator is used '/' or '-'
-	  var opera1 = inputText.value.split('/');
-	  var opera2 = inputText.value.split('-');
-	  lopera1 = opera1.length;
-	  lopera2 = opera2.length;
-	  // Extract the string into month, date and year
-	  if (lopera1>1)
-	  {
-	  	var pdate = inputText.value.split('/');
-	  }
-	  else if (lopera2>1)
-	  {
-	  	var pdate = inputText.value.split('-');
-	  }
-	  var dd = parseInt(pdate[0]);
-	  var mm  = parseInt(pdate[1]);
-	  var yy = parseInt(pdate[2]);
-	  // Create list of days of a month [assume there is no leap year by default]
-	  var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];
-	  if (mm==1 || mm>2)
-	  {
-	  	if (dd>ListofDays[mm-1])
-	  	{
-	  		alert('Invalid date format!');
-	  		return false;
-	  	}
-	  }
-	  if (mm==2)
-	  {
-	  	var lyear = false;
-	  	if ( (!(yy % 4) && yy % 100) || !(yy % 400)) 
-	  	{
-	  		lyear = true;
-	  	}
-	  	if ((lyear==false) && (dd>=29))
-	  	{
-	  	alert('Invalid date format!');
-	  	return false;
-	  	}
-	  	if ((lyear==true) && (dd>29))
-	  	{
-	  	alert('Invalid date format!');
-	  	return false;
-	  	}
-	  }
-	 }
-	 else
-	 {
-	  alert("Invalid date format!");
-	  document.form1.text1.focus();
-	  return false;
-	 }
-	 function Phone(inputtxt)
+	 function phone(inputtxt)
 		{
 			  var phoneno = /^[789]\d{9}$/;
 			  if(inputtxt.value.match(phoneno))
 			  {
-			      return true;
+			      document.getElementById("mob").innerHTML=""
+				  return true;
 			  }
 			  else
 			  {
-			     alert('Invalid Phone Number');
+			     //alert('Invalid Phone Number');
+			     mob.style.color='Red';
+			     document.getElementById("mob").innerHTML="Enter a valid mobile number";
+			     document.myform.mob.focus();
 			     return false;
 			  }
 		}
-}
+
 </script>
 
 </body>
