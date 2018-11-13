@@ -165,11 +165,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="inner_sec_grids_info_w3ls">
 				<div class="signin-form">
 					<div class="login-form-rec">
-						<form action="#" method="post">
-							<input type="text" name = "bank" placeholder ="Enter your Bank Name" onchange ="bank(this)">
-							<input type="text" name = "branch" placeholder ="Enter your Branch" onchange = "branch(this)">
-							<input type="text" name = "acno" placeholder ="Enter your Account Number" onchange = "checkaccountnumber(this)">
-							<input type="text" name = "ifsc" placeholder ="Enter your IFSC CODE" onchange="checkifsc(this)">
+						<form action="#" method="post" name="myform">
+							<input type="text" name = "bank" placeholder ="Enter your Bank Name" onfocusout ="bank(this)">
+							<p id="bank"></p>
+							<input type="text" name = "branch" placeholder ="Enter your Branch" onfocusout = "branch(this)">
+							<p id="branch"></p>
+							<input type="text" name = "acno" placeholder ="Enter your Account Number" onfocusout = "checkaccountnumber(this)">
+							<p id="acno"></p>
+							<input type="text" name = "ifsc" placeholder ="Enter your IFSC CODE" onfocusout="checkifsc(this)">
+							<p id="ifsc"></p>
 							<div class="tp">
 								<input type="submit" name="user" value="Apply">
 								
@@ -190,22 +194,99 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	System.out.println("ID = "+id1);
 	session.setAttribute("id",id1);
 	
-	/* Getting Attributes from First page (Prathan Basic) */
-	String Beneficiary = (String) session.getAttribute("beneficiary");
-	String Benefname = (String) session.getAttribute("benefname");
-	String Benefproof = (String) session.getAttribute("benefproof");
-	String Benefidno = (String) session.getAttribute("benefidno");
-	String Husaadhar = (String) session.getAttribute("husband");
-	String Husname = (String) session.getAttribute("husname");
-	String Husproof = (String) session.getAttribute("husproof");
-	String Husidno = (String) session.getAttribute("husidno");
+	/* Prathan Basic */
+	String Beneficiary = "";
+	String Benefname = "";
+	String Benefproof = "";
+	String Benefidno = "";
+	String Husaadhar = "";
+	String Husname = "";
+	String Husproof = "";
+	String Husidno = "";
+	/* Prathan Basic */
+	
+	/* Prathan Contact */
+	String Cat = "";
+	String Address = "";
+	String Pin = "";
+	String State = "";
+	String Mob = "";
+	/* Prathan Contact */
+	
+	/* JSY Basic */
+	String Mother ="";
+	String Aadhar = "";
+	String Mobile = "";
+	String Email = "";
+	String District = "";
+	String States = "";
+	String Add = "";
+	String Pinc = "";
+	/* JSY Basic */
+	
+	/*JSY Service Info */
+	String Caste = "";
+	String Husband = "";
+	String Occupation = "";
+	String Healthcen = "";
+	String Benefit = "";
+	String Cardno = "";
+	String Area = "";
+	/*JSY Service Info */
+	
+	/*JSY Delivery Details */
+	String Placeofd = "";
+	String Ddate = "";
+	String Dtype = "";
+	String Dres = "";
+	/*JSY Delivery Details */
+	
+	if(id1.equals("4"))
+	{
+		/* Getting Attributes from First page (Prathan Basic) */
+		Beneficiary = (String) session.getAttribute("beneficiary");
+		Benefname =  (String) session.getAttribute("benefname");
+		Benefproof = (String) session.getAttribute("benefproof");
+		Benefidno = (String) session.getAttribute("benefidno");
+		Husaadhar = (String) session.getAttribute("husband");
+		Husname = (String) session.getAttribute("husname");
+		Husproof = (String) session.getAttribute("husproof");
+		Husidno = (String) session.getAttribute("husidno");
+			
+		/* Getting Attributes from Second Page (Prathan Contact) */
+		Cat = (String) session.getAttribute("cat");
+		Address = (String) session.getAttribute("address");
+		Pin = (String) session.getAttribute("pin");
+		State = (String) session.getAttribute("state");
+		Mob = (String) session.getAttribute("mob");
+	}
+	else
+	{
+		/*Getting Attributes from First Page (JSY Basic) */
+		Mother = (String) session.getAttribute("mother");
+		Aadhar = (String) session.getAttribute("aadhar");
+		Mobile = (String) session.getAttribute("mob");
+		Email = (String) session.getAttribute("emailid");
+		District = (String) session.getAttribute("district");
+		States = (String) session.getAttribute("state");
+		Add = (String) session.getAttribute("address");
+		Pinc = (String) session.getAttribute("pin");
 		
-	/* Getting Attributes from Second Page */
-	String Cat = (String) session.getAttribute("cat");
-	String Address = (String) session.getAttribute("address");
-	String Pin = (String) session.getAttribute("pin");
-	String State = (String) session.getAttribute("state");
-	String Mob = (String) session.getAttribute("mob");
+		/*Getting Attributes from Second Page (JSY Service info) */
+		Caste = (String) session.getAttribute("caste");
+		Husband = (String) session.getAttribute("hus");
+		Occupation = (String) session.getAttribute("occu");
+		Healthcen = (String) session.getAttribute("primary");
+		Benefit = (String) session.getAttribute("ab");
+		Cardno = (String) session.getAttribute("ration");
+		Area = (String) session.getAttribute("ef");
+		
+		/*Getting Attributes from Third Page (JSY Delivery Details) */
+		Placeofd = request.getParameter("pod");
+		Ddate = request.getParameter("date");
+		Dtype = request.getParameter("dtype");
+		Dres = request.getParameter("res");
+	}
 	
 	/*Bank Details*/
 	String Bank = request.getParameter("bank");
@@ -226,8 +307,9 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/social","root","");
 			Statement stmt = con.createStatement();
 			
-			
-				String sql = "insert into prathan(Beneficiary,Benefname,Benefproof,Benefidno,Husaadhar,Husname,Husproof,Husidno,Category,Address,Pin,State,Mob,Bank,Branch,Accno,Ifsc) values('"+Beneficiary+"','"+Benefname+"','"+Benefproof+"','"+Benefidno+"','"+Husaadhar+"','"+Husname+"','"+Husproof+"','"+Husidno+"','"+Cat+"','"+Address+"','"+Pin+"','"+State+"','"+Mob+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
+			if(id1.equals("4"))
+			{
+				String sql = "insert into prathan(Email,Beneficiary,Benefname,Benefproof,Benefidno,Husaadhar,Husname,Husproof,Husidno,Category,Address,Pin,State,Mob,Bank,Branch,Accno,Ifsc) values('"+ml+"','"+Beneficiary+"','"+Benefname+"','"+Benefproof+"','"+Benefidno+"','"+Husaadhar+"','"+Husname+"','"+Husproof+"','"+Husidno+"','"+Cat+"','"+Address+"','"+Pin+"','"+State+"','"+Mob+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
 				System.out.println(sql);
 				int i = stmt.executeUpdate(sql);
 			
@@ -241,7 +323,24 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 					System.out.println("Failed");
 				}
 			
-		}
+			}
+			else
+			{
+				String sql = "insert into janani(Mother,Aadhar,Mobile,Email,District,State,Address,Pin,Caste,Husband,Occupation,Healthcen,Benefit,Cardno,Area,Pdelivery,Ddate,Dtype,Dres,Bank,Branch,Accno,Ifsc) values('"+Mother+"','"+Aadhar+"','"+Mobile+"','"+Email+"','"+District+"','"+States+"','"+Add+"','"+Pinc+"','"+Caste+"','"+Husband+"','"+Occupation+"','"+Healthcen+"','"+Benefit+"','"+Cardno+"','"+Area+"','"+Placeofd+"','"+Ddate+"','"+Dtype+"','"+Dres+"','"+Bank+"','"+Branch+"','"+Accountno+"','"+IFSC+"')";
+				System.out.println(sql);
+				int i = stmt.executeUpdate(sql);
+			
+				if(i>0)
+				{
+					System.out.println("Application Submitted Successfully");
+					//response.sendRedirect("ViewAppliedScheme.jsp");	
+				}
+				else
+				{
+					System.out.println("Failed");
+				}
+			}
+		}	
 		catch(Exception e)
 		{
 			System.out.println(e);
@@ -291,11 +390,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			var r=/^[a-zA-Z]+$/;
 			if(inp.value.match(r))
 			{
-
+				document.myform.branch.focus();
+				document.getElementById("bank").innerHTML = "";
+				return true;
 			}
 			else
 			{
-			alert('Invalid Bank Name');
+				bank.style.color='Red';
+				document.getElementById("bank").innerHTML = "Enter your Bank Name";
+				document.myform.bank.focus();
+				return false;
 			}
 		}
 		function checkifsc(inp) 
@@ -303,10 +407,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			var r=/^[A-Za-z]{4}\d{7}$/;
 			if(inp.value.match(r))
 			{
+				document.getElementById("ifsc").innerHTML="";
+				return true;
 			}
 			else
 			{
-				alert('Invalid IFSC Code');
+				ifsc.style.color='Red';
+				document.getElementById("ifsc").innerHTML = "Enter a valid IFSC Code";
+				document.myform.ifsc.focus();
+				return false;
 			}
 		}
 		function branch(inp)
@@ -314,23 +423,33 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			var r=/^[a-zA-Z]+$/;
 			if(inp.value.match(r))
 			{
-
+				document.myform.acno.focus();
+				document.getElementById("branch").innerHTML = "";
+				return true;
 			}
 			else
 			{
-			alert('Incorrect Branch Name');
+				branch.style.color='Red';
+				document.getElementById("branch").innerHTML = "Enter your Branch Name";
+				document.myform.branch.focus();
+				return false;
 			}	        
 	   }
 	function checkaccountnumber(inp) 
 	{
-		var r=/^[0-9]+$/;
+		var r=/^\d{11}$/;
 		if(inp.value.match(r))
 		{
-
+			document.myform.ifsc.focus();
+			document.getElementById("acno").innerHTML = "";
+			return true;
 		}
 		else
 		{
-			alert('Incorrect Account Number');
+			acno.style.color='Red';
+			document.getElementById("acno").innerHTML = "Enter a 12 Digit Account Number!!";
+			document.myform.acno.focus();
+			return false;
 		}      
 	}
 </script>
