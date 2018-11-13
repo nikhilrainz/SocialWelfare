@@ -171,12 +171,12 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 													 <option value="fresh">Fresh</option>
 														<option value="renew">Renewal</option>     
 										</select>
-							<input type="text" name = "admno" placeholder ="Enter your Admission Number" onfocusout="validateadmn(this)" required>
-							<input type="text" name = "cls" placeholder ="Enter your Class" onfocusout="validatecls(this)" required>
-							<input type="text" name = "school" placeholder ="Enter your School Name" onfocusout ="validateschool(this)" required>
-							<input type="text" name = "schoolph" placeholder ="Enter your School Phone Number" onfocusout="validatephone(this)" required>
-							<input type="text" name = "perc" placeholder ="Enter your Previous Class Percentage" onfocusout="validateperc(this)" required>
-							<input type="text" name = "fees" placeholder ="Enter your School Fees per year" onfocusout="validatefees(this)" required>
+							<input type="text" name = "admno" placeholder ="Enter your Admission Number" onfocusout="validateadmn(this)" required><p id="admno"></p>
+							<input type="text" name = "cls" placeholder ="Enter your Class" onfocusout="validatecls(this)" required><p id="cls"></p>
+							<input type="text" name = "school" placeholder ="Enter your School Name" onfocusout ="validateschool(this)" required><p id="school"></p>
+							<input type="text" name = "schoolph" placeholder ="Enter your School Phone Number" onfocusout="validatephone(this)" required><p id="schoolph"></p>
+							<input type="text" name = "perc" placeholder ="Enter your Previous Class Percentage" onfocusout="validateperc(this)" required><p id="perc"></p>
+							<input type="text" name = "fees" placeholder ="Enter your School Fees per year" onfocusout="validatefees(this)" required><p id="fees"></p>
 							<input type="radio" name = "type" value = "Hostler" placeholder = "Hostler" required>Hostler
 							<input type="radio" name = "type" value = "Day Scholar" placeholder = "Day Scholar" required>Day Scholar
 							<div class="tp">
@@ -243,12 +243,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		var r = /^[0-9]{4}[-][0-9]{6,8}$/;
 		if(inp.value.match(r))
 		{
-				
+			document.myform.perc.focus();
+			document.getElementById("schoolph").innerHTML="";
+			return true;
 		}
 		else
 		{
-			alert('Please include - in between');
+			schoolph.style.color='Red';
+			document.getElementById("schoolph").innerHTML="Please include - in between";
 			document.myform.schoolph.focus();
+			return false;
 		}
 	}
 	function validateschool(inp)
@@ -256,12 +260,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		var r=/^[a-zA-Z]+$/;
 		if(inp.value.match(r))
 		{
-
+			document.myform.schoolph.focus();
+			document.getElementById("school").innerHTML="";
+			return true;
 		}
 		else
 		{
-		alert('Enter a valid school name');
-		 document.myform.school.focus();
+			school.style.color='Red';
+			document.getElementById("school").innerHTML="Enter a valid school name";
+			document.myform.school.focus();
+			return false;
 		}
 	}
 	function validateperc(inp)
@@ -269,12 +277,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		var r=/^[0-9]{1,2}|[0-9]{1,3}$/;
 		if(inp.value.match(r))
 		{
-			
+			document.myform.fees.focus();
+			document.getElementById("perc").innerHTML="";
+			return true;
 		}
 		else
 		{
-			alert('Use numbers only');
-			 document.myform.perc.focus();
+			perc.style.color='Red';
+			document.getElementById("perc").innerHTML="Use of numbers only";
+			document.myform.perc.focus();
+			return false;
 		}
 	}
 	function validatefees(inp)
@@ -282,12 +294,17 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		var r=/^[0-9]{5}$/;
 		if(inp.value.match(r))
 		{
-			
+			document.myform.type.focus();
+			document.getElementById("fees").innerHTML="";
+			return true;
 		}
 		else
 		{
-			alert('Enter a number only upto 5 digits');
-			 document.myform.fees.focus();
+			//alert('Enter a number only upto 5 digits');
+			fees.style.color='Red';
+			document.getElementById("fees").innerHTML="Enter a number only upto 5 digits";
+			document.myform.fees.focus();
+			return false;
 		}
 	}
 	function validatecls(inp)
@@ -295,12 +312,18 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		var r=/^[1-9]|10$/;
 		if(inp.value.match(r))
 		{
+			document.getElementById("cls").innerHTML="";
+			document.myform.school.focus();
 			
+			return true;
 		}
 		else
 		{
-			alert('Format not allowed');
-			 document.myform.cls.focus();
+			//alert('Format not allowed');
+			cls.style.color='Red';
+			document.getElementById("cls").innerHTML="Format not allowed";
+			document.myform.cls.focus();
+			return false;
 		}
 	}
 	function validateadmn(inp)
@@ -308,13 +331,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		var r=/^[1-9]{7}$/;
 		if(inp.value.match(r))
 		{
-			
+			document.myform.cls.focus();
+			document.getElementById("admno").innerHTML="";
+			return true;
 		}
 		else
 		{
-			alert('Only numbers are permitted upto 7 digits');
-			 document.myform.admno.focus();
-			 return false;
+			admno.style.color='Red';
+			document.getElementById("admno").innerHTML="Only numbers are permitted upto 7 digits";
+			document.myform.admno.focus();
+			return false;
 		}
 	}
 </script>
