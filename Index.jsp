@@ -83,7 +83,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.html">
+						<a class="navbar-brand" href="Index.jsp">
 							<h1><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h1>
 						</a>
 					</div>
@@ -266,19 +266,19 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<h3>Our Schemes</h3>
 				<ul class="footer_grid_list">
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Pre-Matric Scholarship</a>
+						<a href="Pre.jsp" >Pre-Matric Scholarship</a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Post-Matric Scholarship </a>
+						<a href="Post.jsp" >Post-Matric Scholarship </a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Merit Cum Means Scholarship</a>
+						<a href="Merit.jsp" >Merit Cum Means Scholarship</a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >PradhanManthri Matritva Vandhana yojana</a>
+						<a href="Pmmvy.jsp" >PradhanManthri Matritva Vandhana yojana</a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Janani Suraksha Yojana</a>
+						<a href="Jsy.jsp" >Janani Suraksha Yojana</a>
 					</li>
 				</ul>
 			</div>
