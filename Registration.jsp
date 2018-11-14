@@ -72,7 +72,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 </script>
 <body>
 	<!-- header -->
-	<div class="header" id="home">
+<div class="header" id="home">
 		<div class="content white agile-info">
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="container">
@@ -83,7 +83,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.html">
+						<a class="navbar-brand" href="Index.jsp">
 							<h1><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h1>
 						</a>
 					</div>
@@ -92,55 +92,36 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav class="link-effect-2" id="link-effect-2">
 							<ul class="nav navbar-nav">
-								<li><a href="index.html" class="effect-3">Home</a></li>
-								<li class="dropdown">
-									<a href="services.html" class="dropdown-toggle effect-3" data-toggle="dropdown">Services <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="services.html">Services 2</a></li>
-										<li class="divider"></li>
-										<li><a href="services.html">Services 3</a></li>
-										<li class="divider"></li>
-										<li><a href="codes.html">Codes</a></li>
-										<li class="divider"></li>
-										<li><a href="icons.html">Icons</a></li>
-										<li class="divider"></li>
-										<li><a href="services.html">One more separated link</a></li>
-									</ul>
+								<li >
+									<a href="Index.jsp" class="effect-3">Home</a>
 								</li>
-								<li class="dropdown">
-									<a href="jobs.html" class="dropdown-toggle effect-3" data-toggle="dropdown">Jobs<b class="caret"></b></a>
-									<ul class="dropdown-menu multi-column columns-2">
-										<div class="row">
-											<div class="col-sm-6">
-												<ul class="multi-column-dropdown">
-													<li><a href="jobs.html">Walk-ins</a></li>
-													<li><a href="jobs.html">Bpo Jobs</a></li>
-													<li><a href="jobs.html">Teaching Jobs</a></li>
-													<li><a href="jobs.html">Diploma Jobs</a></li>
-													<li><a href="jobs.html">Tech Support</a></li>
-													<li><a href="jobs.html">Finance Jobs</a></li>
-													<li><a href="jobs.html">Part time Jobs</a></li>
-													<li><a href="jobs.html">Health Care</a></li>
-													<li><a href="jobs.html">Hospitality</a></li>
-													<li><a href="jobs.html">Internships</a></li>
-													<li><a href="jobs.html">Research Jobs</a></li>
-													<li><a href="jobs.html">Defence Jobs</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-6">
-												<ul class="multi-column-dropdown">
-													<li><a href="login.html">Recruiter Updates</a></li>
-													<li><a href="upload.html">Upload Resume</a></li>
-													<li><a href="codes.html">Shortcodes</a></li>
-												</ul>
-											</div>
-										</div>
-									</ul>
+								<li >
+									<a href="AboutUs.jsp"  class="effect-3">About Us </a>
 								</li>
-								<li><a href="events.html" class="effect-3">Events</a></li>
+								<li class="active">
+									<a href="Registration.jsp" class="effect-3">Register</a>
+								</li>
+								<li>
+									<a href="Login.jsp" class="effect-3">Login</a>
+								</li>
 
-								<li><a href="professional.html" class="effect-3">Profesionals</a></li>
-								<li><a href="contact.html" class="effect-3">Contact</a></li>
+								<li>
+									<a href="services.html" class="dropdown-toggle effect-3" data-toggle="dropdown">Our Schemes <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="Pre.jsp">Pre-Matric</a></li>
+										<li class="divider"></li>
+										<li><a href="Post.jsp">Post-Matric</a></li>
+										<li class="divider"></li>
+										<li><a href="Merit.jsp">Merit cum means</a></li>
+										<li class="divider"></li>
+										<li><a href="Pmmvy.jsp">PMMVY</a></li>
+										<li class="divider"></li>
+										<li><a href="Jsy.jsp">Janani Suraksha Yojana</a></li>
+									</ul>
+									</li>
+								<li>
+								<a href="Contact.jsp" class="effect-3">Contact</a>
+								</li>
 							</ul>
 						</nav>
 					</div>
@@ -150,10 +131,11 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			</nav>
 		</div>
 	</div>
+
+
 	<!-- banner -->
 	<div class="inner_page_agile">
 		<h3>Register</h3>
-		<p>Add Some Short Description</p>
 
 	</div>
 	<!--//banner -->
@@ -162,7 +144,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 		<div class="inner_breadcrumb">
 
 			<ul class="short_w3ls"_w3ls>
-				<li><a href="index.html">Home</a><span>|</span></li>
+				<li><a href="Index.jsp">Home</a><span>|</span></li>
 				<li>Register</li>
 			</ul>
 		</div>
@@ -232,7 +214,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 														<option value="Female">Female</option>
 														<option value="Others">Others</option>     
 										</select>
-							<input type="text" name="date" placeholder="DD-MM-YYYY" onfocusout="validatedate(this)" required=""><p id="date"></p>
+							<input type="text" name="date" placeholder="DD-MM-YYYY" onfocusout="validatedate(this)" required="">
+							<p id="date"></p>
 							
 							<select id="country13" name="category" onchange="change_country(this.value)" class="frm-field required">
 														<option value="null">Category</option>
@@ -248,7 +231,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<input type="submit" name="submit" value="register">
 						</form>
 					</div>
-					<p class="reg"><a href="#"> By clicking register, I agree to your terms</a></p>
+					<p class="reg">By clicking register, I agree to your terms</p>
 
 				</div>
 			</div>
@@ -367,54 +350,45 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 </script></div>
 		</div>
 	</div>
+
 	<div class="footer_top_agileits">
 		<div class="container">
 			<div class="col-md-4 footer_grid">
 				<h3>About Us</h3>
-				<p>Nam libero tempore cum vulputate id est id, pretium semper enim. Morbi viverra congue nisi vel pulvinar posuere sapien
-					eros.
+				<p>
+				Our system  is dedicated to help people find their scholarship opportunities of all kind.
 				</p>
 			</div>
 			<div class="col-md-4 footer_grid">
-				<h3>Latest News</h3>
+				<h3>Our Schemes</h3>
 				<ul class="footer_grid_list">
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="single.html">Lorem ipsum neque vulputate </a>
+						<a href="Pre.jsp" >Pre-Matric Scholarship</a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="single.html">Dolor amet sed quam vitae</a>
+						<a href="Post.jsp" >Post-Matric Scholarship </a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="single.html">Lorem ipsum neque, vulputate </a>
+						<a href="Merit.jsp" >Merit Cum Means Scholarship</a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="single.html">Dolor amet sed quam vitae</a>
+						<a href="Pmmvy.jsp" >PradhanManthri Matritva Vandhana yojana</a>
 					</li>
 					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="single.html">Lorem ipsum neque, vulputate </a>
+						<a href="Jsy.jsp" >Janani Suraksha Yojana</a>
 					</li>
 				</ul>
 			</div>
 			<div class="col-md-4 footer_grid">
 				<h3>Contact Info</h3>
 				<ul class="address">
-					<li><i class="fa fa-map-marker" aria-hidden="true"></i>8088 USA, Honey block, <span>New York City.</span></li>
+					<li><i class="fa fa-map-marker" aria-hidden="true"></i>Trivandrum,Kerala <span>PIN-695001</span></li>
 					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+09187 8088 9436</li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>+919746248549</li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
-			<div class="footer_grids">
-				<div class="col-md-4 footer_grid_left">
-					<h3>Sign up for our Newsletter</h3>
-				</div>
-				<div class="col-md-8 footer_grid_right">
-
-					<form action="#" method="post">
-						<input type="email" name="Email" placeholder="Enter Email Address..." required="">
-						<input type="submit" value="Submit">
-					</form>
-				</div>
+			<div class="footer_grids">	
 				<div class="clearfix"> </div>
 			</div>
 		</div>
@@ -424,20 +398,9 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			<div class="footer_bottom">
 				<div class="col-md-9 footer_bottom_grid">
 					<div class="footer_bottom1">
-						<a href="index.html">
-							<h2><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h2>
+						<a href="Index.jsp">
+							<h2><span class="fa fa-signal" aria-hidden="true"></span> soft<label></label></h2>
 						</a>
-						<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-					</div>
-				</div>
-				<div class="col-md-3 footer_bottom_grid">
-					<h6>Follow Us</h6>
-					<div class="social">
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-rss"></i></a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -445,7 +408,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 		</div>
 	</div>
-	<!-- //footer -->
+		<!-- //footer -->
 
 	<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	
@@ -482,7 +445,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		  // Match the date format through regular expression
 		 	 if(inputText.value.match(dateformat))
 		  	 {
-			  document.form1.date.focus();
+			  document.myform.phone.focus();
 			  //Test which seperator is used '/' or '-'
 			  var opera1 = inputText.value.split('/');
 			  var opera2 = inputText.value.split('-');
@@ -528,10 +491,13 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			  	return false;
 			  	}
 			  }
+			  document.getElementById("date").innerHTML="";
+			  return true;
 			 }
 			 else
 			 {
-			  	alert('invalid date format');
+			  	date.style.color='Red';
+			  	document.getElementById("date").innerHTML="Invalid Date Format!!";
 			    document.myform.date.focus();
 			  	return false;
 			 }
