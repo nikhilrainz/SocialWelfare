@@ -86,8 +86,8 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.html">
-							<h1><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h1>
+						<a class="navbar-brand" href="Index.jsp">
+							<h1><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h1>
 						</a>
 					</div>
 					<!--/.navbar-header-->
@@ -95,19 +95,9 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav class="link-effect-2" id="link-effect-2">
 							<ul class="nav navbar-nav">
-								<li >
-									<a href="Index.jsp" class="effect-3">Home</a>
-								</li>
-								<li >
-									<a href="AboutUs.jsp"  class="effect-3">About Us </a>
-								</li>
-								<li >
-									<a href="Registration.jsp" class="effect-3">Register</a>
-								</li>
-								<li class="active">
-									<a href="Login.jsp" class="effect-3">Login</a>
-								</li>
-
+								<li><a href="Index.jsp" class="effect-3">Home</a></li>
+								<li><a href="Registration.jsp" class="effect-3">Register</a></li>
+								<li class="active"><a href="Login.jsp" class="effect-3">Login</a></li>
 								<li>
 									<a href="services.html" class="dropdown-toggle effect-3" data-toggle="dropdown">Our Schemes <b class="caret"></b></a>
 									<ul class="dropdown-menu">
@@ -122,9 +112,6 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 										<li><a href="Jsy.jsp">Janani Suraksha Yojana</a></li>
 									</ul>
 									</li>
-								<li>
-								<a href="Contact.jsp" class="effect-3">Contact</a>
-								</li>
 							</ul>
 						</nav>
 					</div>
@@ -135,10 +122,8 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 		</div>
 	</div>
 	<!-- banner -->
-	<div class="inner_page_agile">
+	<div class="inner_page_agile_login">
 		<h3>Login</h3>
-		<p>Login to Apply</p>
-
 	</div>
 	<!--//banner -->
 	<!--/w3_short-->
@@ -199,11 +184,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			</div>
 												</div>
 
-											  </div>
-											</div>
-											</div>
-		
-
+											  </div>							
 
 <script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
 <div style='margin: 0 auto;text-align: center;margin-top: 5px;'><script>
@@ -233,29 +214,10 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		<div class="container">
 			<div class="col-md-4 footer_grid">
 				<h3>About Us</h3>
-				<p>
-				Our system  is dedicated to help people find their scholarship opportunities of all kind.
-				</p>
+				<p>Our system is dedicated to help people find their scheme benefits of all kind. We provide citizens a single interface for all social welfare schemes so as to ensure complete information related to schemes are available, provide a need based intelligent search and provision to apply for the schemes.
+				<p>We also ensure that social benefits reach the deserving and needy at the right time in the right account in an efficient and transparent manner.</p>
 			</div>
 			<div class="col-md-4 footer_grid">
-				<h3>Our Schemes</h3>
-				<ul class="footer_grid_list">
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Pre.jsp" >Pre-Matric Scholarship</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Post.jsp" >Post-Matric Scholarship </a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Merit.jsp" >Merit Cum Means Scholarship</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Pmmvj.jsp" >PradhanManthri Matritva Vandhana yojana</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Jsy.jsp" >Janani Suraksha Yojana</a>
-					</li>
-				</ul>
 			</div>
 			<div class="col-md-4 footer_grid">
 				<h3>Contact Info</h3>
@@ -271,14 +233,26 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			</div>
 		</div>
 	</div>
+	<!-- //footer -->
 	<div class="footer_w3ls">
 		<div class="container">
 			<div class="footer_bottom">
 				<div class="col-md-9 footer_bottom_grid">
 					<div class="footer_bottom1">
 						<a href="index.html">
-							<h2><span class="fa fa-signal" aria-hidden="true"></span> soft<label></label></h2>
+							<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
 						</a>
+						<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+				</div>
+				<div class="col-md-3 footer_bottom_grid">
+					<h6>Follow Us</h6>
+					<div class="social">
+						<ul>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i></a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
