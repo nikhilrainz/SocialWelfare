@@ -87,19 +87,19 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.html">
-							<h1><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h1>
+						<a class="navbar-brand" href="Index.jsp">
+							<h1><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h1>
 						</a>
 					</div>
 					<!--/.navbar-header-->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav class="link-effect-2" id="link-effect-2">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="Userlogin.jsp" class="effect-3">Home</a></li>
+								<li><a href="Userlogin.jsp" class="effect-3">Home</a></li>
 								
 								<li class="dropdown">
 									
-								<li><a href="ViewUserScheme.jsp" class="effect-3">View Scheme</a></li>
+								<li class="active"><a href="ViewUserScheme.jsp" class="effect-3">View Scheme</a></li>
 									
 								
 								<li><a href="Login.jsp" class="effect-3">Log Out</a></li>
@@ -112,9 +112,23 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			</nav>
 		</div>
 	</div>
-	
+	<div class="inner_page_agile">
+		<h3></h3>
+		<!-- <p>Care, Protection & Empowerment</p> -->
 
-	
+	</div>
+	<!--//banner -->
+	<!--/w3_short-->
+	<div class="services-breadcrumb_w3layouts">
+		<div class="inner_breadcrumb">
+
+			<!-- <ul class="short_w3ls"_w3ls>
+				<li><a href="#">Home</a><span>|</span></li>
+				<li></li>
+			</ul> -->
+		</div>
+	</div>
+
 	<div class="banner-bottom">
 		<div class="container">
 			<!---728x90--->
@@ -195,17 +209,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	}
 %>	
 		<div class="inner_sec_grids_info_w3ls">
-				<div class="signin-form">
-					<div class="login-form-rec">
-						<form action="#" method="post" name="myform">
+					<form action="#" method="post" name="myform">
 							<table class ="table-striped table-bordered table-condensed table-hover">
 								<tr>
-									<th>Scheme ID</th>
+									<th>SchemeID</th>
 									<th>Scheme Name</th>
 									<th>Scheme Description</th>
 									<th>Apply</th>
-									<th>Application Preview</th>
-									<th>Application Status</th>
+									<th>Preview</th>
+									<th>Status</th>
 								</tr>
 								
 								<%
@@ -267,19 +279,19 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 																	if(paystat==1)
 																	{
 																	%>
-																		<td><button class="btn btn-info" name="paytrue">Approved</button></td>
+																		<td><button class="btn btn-info" name="paytrue" disabled>Approved</button></td>
 																	<% 		
 																	}
 																	else if(rejstat==1)
 																	{
 																	%>
-																		<td><button class="btn btn-danger" name="rejtrue">Rejected</button></td>
+																		<td><button class="btn btn-danger" name="rejtrue" disabled>Rejected</button></td>
 																	<%
 																	}
 																	else
 																	{
 																	%>
-																		<td><button class="btn btn-warning" name="none">Under Processing</button></td>
+																		<td><button class="btn btn-warning" name="none" disabled>Under Processing</button></td>
 																	<% 
 																	}
 																%>
@@ -293,30 +305,40 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 																{
 																%>
 																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="prematric" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
+																	<td>None</td>
+																	<td>None</td>
 																<%
 																}
 																else if(sch.equals("2"))
 																{
 																%>
 																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="postmatric" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
+																	<td>None</td>
+																	<td>None</td>
 																<%
 																}
 																else if(sch.equals("3")) 
 																{	
 																%>
 																	<a href="Basic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="mcm" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
+																	<td>None</td>
+																	<td>None</td>
 																<%
 																}
 																else if(sch.equals("4"))
 																{
 																%>
 																	<a href="PrathanBasic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="prathan" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
+																	<td>None</td>
+																	<td>None</td>
 																<%
 																}
 																else
 																{
 																%>
 																	<a href="JSYbasic.jsp?id=<%=rs.getString("SchemeId")%>"><input type = "button" name ="jsy" id="user" class="btn btn-info" value = "APPLY NOW" ></a>
+																	<td>None</td>
+																	<td>None</td>
 																<%
 																}
 															}
@@ -337,15 +359,62 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 	</table>
 	</form>
 	</div>
-		
-	</div>
-	</div>
+<div class="tittle_head_w3ls">
+	<h3 class="tittle"></h3>
+</div>
+</div>
 
-			<!---728x90--->	
-	
-	
+<script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
+<div style='margin: 0 auto;text-align: center;margin-top: 5px;'><script>
+var allowedNumberOfEboundDynamicAdds = 4;
+var sizesEboundDynamicAdsDesktop = ['728x90'];
+var sizesEboundDynamicAdsTablet = ['728x90'];
+var sizesEboundDynamicAdsMobile = ['320x100'];
+eboundAdsTagByDevice(sizesEboundDynamicAdsDesktop,sizesEboundDynamicAdsTablet,sizesEboundDynamicAdsMobile, 'ebound_header_tag');
+
+if(typeof user_tag_config == 'undefined'){
+	var user_tag_config = {};
+}
+user_tag_config['ebound_header_tag'] = {};
+user_tag_config['ebound_header_tag']['desktop'] = {};
+user_tag_config['ebound_header_tag']['desktop']['cpm'] = '';
+user_tag_config['ebound_header_tag']['desktop']['adsCode'] = '';
+user_tag_config['ebound_header_tag']['tablet'] = {};
+user_tag_config['ebound_header_tag']['tablet']['cpm'] = '';
+user_tag_config['ebound_header_tag']['tablet']['adsCode'] = '';
+user_tag_config['ebound_header_tag']['mobile'] = {};
+user_tag_config['ebound_header_tag']['mobile']['cpm'] = '';
+user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
+</script></div>
+</div>
+	<div class="footer_w3ls">
+		<div class="container">
+			<div class="footer_bottom">
+				<div class="col-md-9 footer_bottom_grid">
+					<div class="footer_bottom1">
+						<a href="index.html">
+							<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
+						</a>
+						<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+				</div>
+				<div class="col-md-3 footer_bottom_grid">
+					<h6>Follow Us</h6>
+					<div class="social">
+						<ul>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+		</div>
+	</div>
+		<!-- //footer -->
 </body>
-
 
 <!-- Mirrored from p.w3layouts.com/demos_new/template_demo/14-11-2017/soft-demo_Free/671769136/web/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Aug 2018 04:51:24 GMT -->
 </html>
