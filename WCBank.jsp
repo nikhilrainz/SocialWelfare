@@ -166,9 +166,9 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post" name="myform">
-							<input type="text" name = "bank" placeholder ="Enter your Bank Name" onfocusout ="bank(this)">
+							<input type="text" name = "bank" placeholder ="Enter your Bank Name" onfocusout ="checkbank(this)">
 							<p id="bank"></p>
-							<input type="text" name = "branch" placeholder ="Enter your Branch" onfocusout = "branch(this)">
+							<input type="text" name = "branch" placeholder ="Enter your Branch" onfocusout = "checkbranch(this)">
 							<p id="branch"></p>
 							<input type="text" name = "acno" placeholder ="Enter your Account Number" onfocusout = "checkaccountnumber(this)">
 							<p id="acno"></p>
@@ -385,7 +385,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 <!-- password-script -->
 <script type="text/javascript">
 		
-		function bank(inp)
+		function checkbank(inp)
 		{
 			var r=/^[a-zA-Z]+$/;
 			if(inp.value.match(r))
@@ -418,7 +418,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				return false;
 			}
 		}
-		function branch(inp)
+		function checkbranch(inp)
 		{
 			var r=/^[a-zA-Z]+$/;
 			if(inp.value.match(r))
