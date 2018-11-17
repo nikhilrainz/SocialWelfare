@@ -84,7 +84,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<span class="icon-bar"></span>
 				</button>
 						<a class="navbar-brand" href="Index.jsp">
-							<h1><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h1>
+							<h1><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h1>
 						</a>
 					</div>
 					<!--/.navbar-header-->
@@ -92,16 +92,9 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 						<nav class="link-effect-2" id="link-effect-2">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="Index.jsp" class="effect-3">Home</a></li>
-								<li >
-									<a href="AboutUs.jsp"  class="effect-3">About Us </a>
-								
-								</li>
-								<li >
-									<a href="Registration.jsp" class="effect-3">Register</a>
-								
+								<li ><a href="Registration.jsp" class="effect-3">Register</a>
 								</li>
 								<li><a href="Login.jsp" class="effect-3">Login</a></li>
-								
 								<li>
 									<a href="services.html" class="dropdown-toggle effect-3" data-toggle="dropdown">Our Schemes <b class="caret"></b></a>
 									<ul class="dropdown-menu">
@@ -116,7 +109,6 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 										<li><a href="Jsy.jsp">Janani Suraksha Yojana</a></li>
 									</ul>
 									</li>
-								<li><a href="Contact.jsp" class="effect-3">Contact</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -139,7 +131,7 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			<div class="item active">
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>Achieve your <span>Goals.</span></h3>
+						<h3>Empowerment Through <span>Education.</span></h3>
 						<p>Study. Train. Retain.</p>		
 					</div>
 				</div>
@@ -147,15 +139,15 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			<div class="item item2">
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>Inspiring leadership <span>innovation.</span></h3>
-						<p>Hire. Train. Retain.</p>
+						<h3>Birth <span>Right.</span></h3>
+						<p>Your right to safe delivery</p>
 					</div>
 				</div>
 			</div>
 			<div class="item item3">
 				<div class="container">
 					<div class="carousel-caption">
-						<h3><span>Productivity.</span></h3>
+						<h3>Achieve Your <span>Goals. </span></h3>
 						<p>Study. Learn. Earn.</p>
 					</div>
 				</div>
@@ -164,8 +156,8 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 				<div class="container">
 					<div class="carousel-caption">
 
-						<h3>Inspiring leadership <span>innovation.</span></h3>
-						<p>Hire. Train. Retain.</p>
+						<h3>There For <span>Care.</span></h3>
+						<p>Better start to Future.</p>
 					</div>
 				</div>
 			</div>
@@ -253,34 +245,65 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		</div>
 	</div>
 	<!-- //banner-bottom -->
+<div class="team_work_agile">
+		<div class="inner_sec_grids_info_w3ls">
+				<div class="col-md-4 blog-grid one">
+		<div style="float: left;width: 100%;height: 380px; background-color: #dbdbdd;box-sizing: border-box;box-shadow:10px 10px 5px #57575b">
+			<h2 align="center">Social Justice</h2>
+<p style="font-size: 16px;font-family:georgia,serif;text-align: justify; padding: 10px;word-spacing: -2px;">Social Justice Department working with the concept of welfare state is underpinning socio-economic development plans of Kerala Government. The department is working hard for the upliftment of marginalised groups and to provide justice to the victimised. The Directorate of Social Justice under the Department is the nodal agency for implementing the social welfare schemes of the State Government and various welfare schemes of the Government of India.</p> 
+		</div>
+	</div>
+	<div class="col-md-4 blog-grid one">
+		<div style="float: left;width:100%;height: 380px;background-color: #dbdbdd;box-shadow:10px 10px 5px #57575b;color:blue" data-userway-font-size="13">
+			<div><h3 align="center" style="color: red">Our Schemes</h3></div>
+			<marquee height="350px" behavior="SCROLL" direction="up" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="2" data-userway-font-size="13" font-color="blue">
+<strong data-userway-font-size="13"> Pre-matric Scholarship schemes</strong><hr data-userway-font-size="13">
+<strong data-userway-font-size="13"> Post Matric Scholarship schemes</strong><hr data-userway-font-size="13">
+<strong data-userway-font-size="13"> Merit Cum Means Scholarship schemes </strong><hr data-userway-font-size="13">
+<strong data-userway-font-size="13"> Prathan Manthri Matrithva Vandana Yojana </strong><hr data-userway-font-size="13">
+<strong data-userway-font-size="13"> Janani Sureksha Yojana</strong></a>- <hr data-userway-font-size="13">
+
+</marquee><br data-userway-font-size="13"><br data-userway-font-size="13"> </div>
+</div>
+<div class="col-md-4 blog-grid one">
+<div style="float: left;width:100%;height: 380px;background-color: #dbdbdd;box-shadow:10px 10px 5px #57575b" data-userway-font-size="13">
+
+
+<h2 align="center">Beneficiaries</h2>
+<h5 align="left" style="color: red;padding-left: 5px;">Children</h5>
+<p align="left" style="color: black;">full of joy, energy and curiosity</p>
+<h5 align="left" style="color: red;padding-left: 5px;">Women</h5>
+<p align="left" style="color: black;">Empowering women in the society</p>
+<h5 align="left" style="color: red;padding-left: 5px;">Senior Citizen</h5>
+<p align="left" style="color: black;">Social security to elderly is not charity but their basic human right</p>
+<h5 align="left" style="color: red;padding-left: 5px;">Differently Abled</h5>
+<p align="left" style="color: black;">Significantly contribute to workplace, families and community.</p>
+<h5 align="left" style="color: red;padding-left: 5px;">Social Defence</h5>
+<p align="left" style="color: black;">Probationers, Ex-prisoners and their family welfare</p>
+<h5 align="left" style="color: red;padding-left: 5px;">Mother & Child</h5>
+<p align="left" style="color: black;">Ensuring better childcare during pregnancy and after delivery</p>
+<!-- <h5 align="left">Adolescence</h5>
+<p align="left">To create an environment conducive to the growth and empowerment.</p>
+<h5 align="left">Transgenders</h5>
+<p align="left">Bringing them to the mainstream of society</p> -->
+</div>
+</div>
+</div>
+
+</div>
+</div>
+	</div>
 
 	<!-- footer -->
 	<div class="footer_top_agileits">
 		<div class="container">
 			<div class="col-md-4 footer_grid">
 				<h3>About Us</h3>
-				<p>Our system  is dedicated to help people find their scholarship opportunities of all kind.
-				</p>
+				<p>Our system is dedicated to help people find their scheme benefits of all kind. We provide citizens a single interface for all social welfare schemes so as to ensure complete information related to schemes are available, provide a need based intelligent search and provision to apply for the schemes.
+				<p>We also ensure that social benefits reach the deserving and needy at the right time in the right account in an efficient and transparent manner.</p>  
+				
 			</div>
 			<div class="col-md-4 footer_grid">
-				<h3>Our Schemes</h3>
-				<ul class="footer_grid_list">
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Pre.jsp" >Pre-Matric Scholarship</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Post.jsp" >Post-Matric Scholarship </a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Merit.jsp" >Merit Cum Means Scholarship</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Pmmvy.jsp" >PradhanManthri Matritva Vandhana yojana</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="Jsy.jsp" >Janani Suraksha Yojana</a>
-					</li>
-				</ul>
 			</div>
 			<div class="col-md-4 footer_grid">
 				<h3>Contact Info</h3>
@@ -302,8 +325,19 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="col-md-9 footer_bottom_grid">
 					<div class="footer_bottom1">
 						<a href="index.html">
-							<h2><span class="fa fa-signal" aria-hidden="true"></span> soft<label></label></h2>
+							<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
 						</a>
+						<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+				</div>
+				<div class="col-md-3 footer_bottom_grid">
+					<h6>Follow Us</h6>
+					<div class="social">
+						<ul>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i></a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
