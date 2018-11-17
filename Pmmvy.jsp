@@ -84,25 +84,18 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<span class="icon-bar"></span>
 				</button>
 						<a class="navbar-brand" href="index.html">
-							<h1><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h1>
+							<h1><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h1>
 						</a>
 					</div>
 					<!--/.navbar-header-->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav class="link-effect-2" id="link-effect-2">
 							<ul class="nav navbar-nav">
-								<li ><a href="Index.jsp" class="effect-3">Home</a></li>
-								<li class="active">
-									<a href="AboutUs.jsp"  class="effect-3">About us </a>
-								
-								</li>
-								<li class="dropdown">
-									<a href="Registration.jsp" class="effect-3">Register</a>
-								
+								<li><a href="Index.jsp" class="effect-3">Home</a></li>
+								<li ><a href="Registration.jsp" class="effect-3">Register</a>
 								</li>
 								<li><a href="Login.jsp" class="effect-3">Login</a></li>
-
-								<li>
+								<li class="active">
 									<a href="services.html" class="dropdown-toggle effect-3" data-toggle="dropdown">Our Schemes <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="Pre.jsp">Pre-Matric</a></li>
@@ -116,7 +109,6 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 										<li><a href="Jsy.jsp">Janani Suraksha Yojana</a></li>
 									</ul>
 									</li>
-								<li><a href="Contact.jsp" class="effect-3">Contact</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -126,24 +118,19 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			</nav>
 		</div>
 	</div>
-<div class="inner_sec_grids_info_w3ls">
-	<div class="team_work_agilepmmvy">
-		<h4>
-			<u>Pradhan Mantri Matritva Vandana Yojana	</u><br>	
-			<br><p>Pradhan Mantri Matritva Vandana Yojana (PMMVY) is a maternity benefit program run by the government of India. 
-			It was introduced in 2010 and is implemented by the Ministry of Women and Child Development. It is a conditional
-			cash transfer scheme for pregnant and lactating women of 19 years of age or above for the first live birth. 
-			It provides a partial wage compensation to women for wage-loss during childbirth and childcare and to provide
-			conditions for safe delivery and good nutrition and feeding practices. The scheme, rechristened Maternity 
-			benefits programme is set to cover the entire nation.</p>		
-			<br><i>Objectives of pmmvy</i>
-	        <p>Promoting appropriate practice, care and institutional service utilization during pregnancy, delivery and lactation.
-	        Encouraging the women to follow (optimal) nutrition and feeding practices, including early and Exclusive breastfeeding for the first six months; and
-		       Providing cash incentives for improved health and nutrition to pregnant and lactating mothers.</p>
-		</h4>
+
+		
+	<div class="inner_sec_grids_info_w3ls">
+					<div id="myCarousel" class="team_work_agilepmmvy" data-ride="carousel">
+						<h4 class="team_work_agilepmmvy h4"><strong>OBJECTIVE</strong><br><br>
+						The objective of Prathan Manthri Mathirthva Vandana Yojana is by providing partial compensation for the wage loss in terms of cash incentives so that the woman can take
+adequate rest before and after delivery of the first living child.
+The cash incentive provided would lead to improved health seeking behaviour amongst the Pregnant
+Women and Lactating Mothers (PW&LM).
+						 
+						</h4>
+					</div>
 	</div>
-</div>
-	
 
 <!---728x90--->
 <script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
@@ -217,35 +204,57 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 		</div>
 	</div>
 	<!-- //banner-bottom -->
+<div class="team_work_agile">
+		<div class="inner_sec_grids_info_w3ls">
+				<div class="col-md-4 blog-grid one">
+		<div style="float: left;width: 100%;height: 380px; background-color: #dbdbdd;box-sizing: border-box;box-shadow:10px 10px 5px #57575b">
+			<h2 align="center">Prathan Manthri Yojana</h2>
+<p style="font-size: 16px;font-family:georgia,serif;text-align: justify; padding: 10px;word-spacing: -2px;">All Pregnant Women and Lactating Mothers, excluding PW&LM who are in regular employment with the
+Central Government or the State Governments or PSUs or those who are in receipt of similar benefits
+under any law for the time being in force.
+All eligible Pregnant Women and Lactating Mothers who have their pregnancy on or after 01.01.2017
+for first child in family.
+The date and stage of pregnancy for a beneficiary would be counted with respect to her LMP date as
+mentioned in the MCP card.</p> 
+		</div>
+	</div>
+	<div class="col-md-4 blog-grid one">
+		<div style="float: left;width: 100%;height: 380px; background-color: #dbdbdd;box-sizing: border-box;box-shadow:10px 10px 5px #57575b">
+			<h2 align="center">Eligibility</h2>
+<p style="font-size: 16px;font-family:georgia,serif;text-align: justify; padding: 10px;word-spacing: -2px;">
+The pregnant women above the age of nineteen are eligible for this scheme. They can apply for the incentive amount of Rs.4000 and it will be paid in three installments. The pregnancy has to be registered to gain benefits. The mother has to attend atleast one session at the health care center. The child has to be breastfed for at least six months.
+</p> 
+		</div>
+	</div>
+</div>
+<div class="col-md-4 blog-grid one">
+<div style="float: left;width:100%;height: 380px;background-color: #dbdbdd;box-shadow:10px 10px 5px #57575b" data-userway-font-size="13">
 
+<h2 align="center">Benefits</h2>
+<p style="font-size: 16px;font-family:georgia,serif;text-align: justify; padding: 10px;word-spacing: -2px;">The beneficiary will receive a total cash incentive of 15000/-
+All eligible beneficiaries who have applied and complies with the conditionalities will receive payments
+through Direct Benefit Transfer (DBT) to their individual Bank/ Post Office Accounts that is specified by
+them in their application form(s) on approval by the competent authority</p>
+<!-- <h5 align="left">Adolescence</h5>
+<p align="left">To create an environment conducive to the growth and empowerment.</p>
+<h5 align="left">Transgenders</h5>
+<p align="left">Bringing them to the mainstream of society</p> -->
+</div>
+</div>
+</div>
+
+</div>
+</div>
+	</div>
 	<!-- footer -->
 	<div class="footer_top_agileits">
 		<div class="container">
 			<div class="col-md-4 footer_grid">
 				<h3>About Us</h3>
-				<p>
-				Our system  is dedicated to help people find their scholarship opportunities of all kind.
-				</p>
+				<p>Our system is dedicated to help people find their scheme benefits of all kind. We provide citizens a single interface for all social welfare schemes so as to ensure complete information related to schemes are available, provide a need based intelligent search and provision to apply for the schemes.
+				<p>We also ensure that social benefits reach the deserving and needy at the right time in the right account in an efficient and transparent manner.</p>
 			</div>
 			<div class="col-md-4 footer_grid">
-				<h3>Our Schemes</h3>
-				<ul class="footer_grid_list">
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Pre-Matric Scholarship</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Post-Matric Scholarship </a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Merit Cum Means Scholarship</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >PradhanManthri Matritva Vandhana yojana</a>
-					</li>
-					<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						<a href="" >Janani Suraksha Yojana</a>
-					</li>
-				</ul>
 			</div>
 			<div class="col-md-4 footer_grid">
 				<h3>Contact Info</h3>
@@ -261,14 +270,26 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 			</div>
 		</div>
 	</div>
+	<!-- //footer -->
 	<div class="footer_w3ls">
 		<div class="container">
 			<div class="footer_bottom">
 				<div class="col-md-9 footer_bottom_grid">
 					<div class="footer_bottom1">
 						<a href="index.html">
-							<h2><span class="fa fa-signal" aria-hidden="true"></span> soft<label></label></h2>
+							<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
 						</a>
+						<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+				</div>
+				<div class="col-md-3 footer_bottom_grid">
+					<h6>Follow Us</h6>
+					<div class="social">
+						<ul>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-rss"></i></a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -276,7 +297,6 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 
 		</div>
 	</div>
-	<!-- //footer -->
 
 	<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- js -->
