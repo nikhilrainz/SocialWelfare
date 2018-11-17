@@ -86,22 +86,21 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.html">
-							<h1><span class="fa fa-signal" aria-hidden="true"></span> Soft <label>Hr Agency</label></h1>
+						<a class="navbar-brand" href="Index.jsp">
+							<h1><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h1>
 						</a>
 					</div>
 					<!--/.navbar-header-->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav class="link-effect-2" id="link-effect-2">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="Deptadmin.jsp" class="effect-3">Home</a></li>
+								<li><a href="Deptadmin.jsp" class="effect-3">Home</a></li>
 								<li>
 									<a href="AddScheme.jsp" class="effect-3" >Add Scheme <b ></b></a>
 								</li> 
 								<li class="dropdown">
-									
 								<li><a href="ViewScheme.jsp" class="effect-3">View Scheme</a></li>	
-								<li><a href="ViewApplicant.jsp" class="effect-3">View Applicant</a></li>
+								<li class="active"><a href="ViewApplicant.jsp" class="effect-3">View Applicant</a></li>
 
 								<li><a href="Login.jsp" class="effect-3">Log Out</a></li>
 							</ul>
@@ -113,9 +112,23 @@ ga('create', 'UA-30027142-1', 'w3layouts.com');
 			</nav>
 		</div>
 	</div>
-	
+	<div class="inner_page_agile">
+		<h3></h3>
+		<!-- <p>Care, Protection & Empowerment</p> -->
 
-	
+	</div>
+	<!--//banner -->
+	<!--/w3_short-->
+	<div class="services-breadcrumb_w3layouts">
+		<div class="inner_breadcrumb">
+
+			<!-- <ul class="short_w3ls"_w3ls>
+				<li><a href="#">Home</a><span>|</span></li>
+				<li></li>
+			</ul> -->
+		</div>
+	</div>
+
 	<div class="banner-bottom">
 		<div class="container">
 			<!---728x90--->
@@ -168,8 +181,8 @@ user_tag_config['ebound_header_tag']['mobile']['cpm'] = '';
 user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 </script></div>
 			<div class="inner_sec_grids_info_w3ls">
-				<div class="signin-form">
-					<div class="login-form-rec">
+				<div class="signin-form-view">
+					   <div class="login-form-rec">   
 						<form action="#" method="post">
 							<table class ="table-striped table-bordered table-condensed table-hover">
 								<tr>
@@ -292,6 +305,60 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				</div>
 			</div>
 			<!---728x90--->	
+			<div class="tittle_head_w3ls">
+	<h3 class="tittle"></h3>
+</div>
+</div>
+
+<script src='../../../../../../../publisher.eboundservices.com/dynamicAds/dynamicScript.js'></script>
+<div style='margin: 0 auto;text-align: center;margin-top: 5px;'><script>
+var allowedNumberOfEboundDynamicAdds = 4;
+var sizesEboundDynamicAdsDesktop = ['728x90'];
+var sizesEboundDynamicAdsTablet = ['728x90'];
+var sizesEboundDynamicAdsMobile = ['320x100'];
+eboundAdsTagByDevice(sizesEboundDynamicAdsDesktop,sizesEboundDynamicAdsTablet,sizesEboundDynamicAdsMobile, 'ebound_header_tag');
+
+if(typeof user_tag_config == 'undefined'){
+	var user_tag_config = {};
+}
+user_tag_config['ebound_header_tag'] = {};
+user_tag_config['ebound_header_tag']['desktop'] = {};
+user_tag_config['ebound_header_tag']['desktop']['cpm'] = '';
+user_tag_config['ebound_header_tag']['desktop']['adsCode'] = '';
+user_tag_config['ebound_header_tag']['tablet'] = {};
+user_tag_config['ebound_header_tag']['tablet']['cpm'] = '';
+user_tag_config['ebound_header_tag']['tablet']['adsCode'] = '';
+user_tag_config['ebound_header_tag']['mobile'] = {};
+user_tag_config['ebound_header_tag']['mobile']['cpm'] = '';
+user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
+</script></div>
+</div>
+<div class="footer_w3ls">
+	<div class="container">
+		<div class="footer_bottom">
+			<div class="col-md-9 footer_bottom_grid">
+				<div class="footer_bottom1">
+					<a href="index.html">
+						<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
+					</a>
+					<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				</div>
+			</div>
+			<div class="col-md-3 footer_bottom_grid">
+				<h6>Follow Us</h6>
+				<div class="social">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-rss"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!-- //footer -->
 	
 <%
 	
