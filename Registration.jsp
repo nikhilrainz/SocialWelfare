@@ -199,8 +199,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<p id="firstname"></p>
 							<input type="text" name="lastname" placeholder="Last Name" required="" onfocusout="checklname(this)">
 							<p id="lastname"></p>
-							<select id="country13" name ="gender" onchange="change_country(this.value)" class="frm-field required">
-														<option value="gender">Gender</option>
+							<select id="country13" name ="gender" onchange="change_country(this.value)" class="frm-field required" required="required">
+														<option value="">Choose your Gender</option>
 													 <option value="Male">Male</option>
 														<option value="Female">Female</option>
 														<option value="Others">Others</option>     
@@ -208,8 +208,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<input type="text" name="date" placeholder="DD-MM-YYYY" onfocusout="validatedate(this)" required="">
 							<p id="date"></p>
 							
-							<select id="country13" name="category" onchange="change_country(this.value)" class="frm-field required">
-														<option value="null">Category</option>
+							<select id="country13" name="category" onchange="change_country(this.value)" class="frm-field required" required="required">
+														<option value="">Choose your Category</option>
 													 	<option value="Education">Education</option>
 														<option value="Women and Child">Women and Child</option>     
 										</select>
