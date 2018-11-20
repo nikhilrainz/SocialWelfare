@@ -185,8 +185,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<input type ="radio" name="education" value="renew" required>Renew		
 							<input type ="text" name="adno" placeholder="Enter Admission number" onfocusout = "validateadmn(this)" required>
 							<p id="adno"></p>
-							<select id="country13" name="quali" onchange="change_country(this.value)" class="frm-field required">
-								<option value="Choose your Qualification">Choose your Qualification</option>
+							<select id="country13" name="quali" onchange="change_country(this.value)" class="frm-field required" required="required">
+								<option value="">Choose your Qualification</option>
 								<option value="SSLC">SSLC</option>
 								<option value="HSE">HSE</option>
 								<option value="UG">UG</option>
@@ -297,7 +297,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 					<a href="index.html">
 						<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
 					</a>
-					<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<p>Â© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 				</div>
 			</div>
 			<div class="col-md-3 footer_bottom_grid">
