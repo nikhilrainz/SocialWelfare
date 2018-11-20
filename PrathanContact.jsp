@@ -181,8 +181,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post" name="myform">
-							<select id="country13" name="cat" onchange="change_country(this.value)" class="frm-field required">
-								<option value="Choose your Category">Choose your Category</option>
+							<select id="country13" name="cat" onchange="change_country(this.value)" class="frm-field required" required="required">
+								<option value="">Choose your Category</option>
 								<option value="General">General</option>
 								<option value="SC">SC</option>
 								<option value="ST">ST</option>     
@@ -190,8 +190,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<textarea name = "address" placeholder="Enter your Communication Address" required></textarea>
 							<input type="text" name = "pin" placeholder="Enter your Pincode" onfocusout = "checkpin(this)" required>
 							<p id="pin"></p>
-							<select id="country13" name="state" onchange="change_country(this.value)" class="frm-field required">
-								<option value="Choose your State">State</option>
+							<select id="country13" name="state" onchange="change_country(this.value)" class="frm-field required" required="required">
+								<option value="">State</option>
 								<option value="KERALA">Kerala</option>
 								<option value="TN">Tamil Nadu</option>
 								<option value="KN">Karnataka</option>     
@@ -282,7 +282,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 					<a href="index.html">
 						<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
 					</a>
-					<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<p>Â© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 				</div>
 			</div>
 			<div class="col-md-3 footer_bottom_grid">
