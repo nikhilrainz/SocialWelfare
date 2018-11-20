@@ -181,16 +181,16 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 				<div class="signin-form">
 					<div class="login-form-rec">
 						<form action="#" method="post" name="myform">
-						<select id="country13" name="caste" onchange="change_country(this.value)" class="frm-field required" required>
-														<option value ="Choose your Caste">Choose your Caste</option>
+						<select id="country13" name="caste" onchange="change_country(this.value)" class="frm-field required" required="required">
+														<option value ="">Choose your Caste</option>
 														<option value="SC">SC</option>
 													 	<option value="ST">ST</option>
 														<option value="other">Other</option>     
 										</select>
 							<input type="text" name = "hus" placeholder ="Enter Husband's Full Name" onfocusout="checkname(this)" required>
 							<p id="hus"></p>
-							<select id="country13" name="occu" onchange="change_country(this.value)" class="frm-field required">
-													 <option value="Occupation">Enter Your Occupation</option>
+							<select id="country13" name="occu" onchange="change_country(this.value)" class="frm-field required" required="required">
+													 <option value="">Enter Your Occupation</option>
 													 <option value="Business">Business</option>
 													 <option value="Farmer">Farmer</option>
 													 <option value="Irregular">Irregular income earner</option>
@@ -298,7 +298,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 					<a href="index.html">
 						<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
 					</a>
-					<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<p>Â© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 				</div>
 			</div>
 			<div class="col-md-3 footer_bottom_grid">
