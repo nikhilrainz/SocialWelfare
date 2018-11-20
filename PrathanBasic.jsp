@@ -185,8 +185,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<p id="beneficiary"></p>
 							<input type="text" name = "benefname" placeholder="Name of the Beneficiary as in Aadhar Card" onfocusout = "validatename(this)" required>
 							<p id="benefname"></p>
-							<select id="country13" name="benefproof" onchange="change_country(this.value)" class="frm-field required">
-								<option value="Proof of Identity">Proof of Identity</option>
+							<select id="country13" name="benefproof" onchange="change_country(this.value)" class="frm-field required" required="required">
+								<option value="">Proof of Identity</option>
 								<option value="aadhar" onchange="checklicense(this)">Driving License</option>
 								<option value="election" onchange="checkelection(this)">Election</option>
 								<option value="pan" onchange = "checkpan(this)">Pan</option>     
@@ -196,8 +196,8 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<p id="husband"></p>
 							<input type="text" name = "husname" placeholder="Name of Husband as in Aadhar Card" onfocusout = "checkname(this)" required>
 							<p id="husname"></p>
-							<select id="country13" name="husproof" onchange="change_country(this.value)" class="frm-field required">
-								<option value="Proof of Identity">Proof of Identity</option>
+							<select id="country13" name="husproof" onchange="change_country(this.value)" class="frm-field required" required="required">
+								<option value="">Proof of Identity</option>
 								<option value="aadhar" onchange="checklicense1(this)">Driving License</option>
 								<option value="election" onchange="checkelection1(this)">Election</option>
 								<option value="pan" onchange = "checkpan1(this)">Pan</option>     
@@ -304,7 +304,7 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 					<a href="index.html">
 						<h2><span class="fa fa-signal" aria-hidden="true"></span> Social <label>Welfare Portal</label></h2>
 					</a>
-					<p>© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<p>Â© 2017 Soft. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 				</div>
 			</div>
 			<div class="col-md-3 footer_bottom_grid">
