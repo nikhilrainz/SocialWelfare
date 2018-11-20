@@ -186,15 +186,15 @@ user_tag_config['ebound_header_tag']['mobile']['adsCode'] = '';
 							<textarea name = "address" placeholder="Enter your Communication Address" required></textarea>
 							<input type="text" name = "pin" placeholder="Enter your Pincode" onfocusout = "checkpin(this)" required>
 							<p id="pin"></p>
-							<select id="country13" name="state" onchange="change_country(this.value)" class="frm-field required">
-														<option value="Choose your State">State</option>
+							<select id="country13" name="state" onchange="change_country(this.value)" class="frm-field required" required="required">
+														<option value="">State</option>
 													 <option value="KERALA">Kerala</option>
 														<option value="TN">Tamil Nadu</option>
 														<option value="KN">Karnataka</option>     
 										</select>
 									
-							<select id="country13" name="proof" onchange="change_country(this.value)" class="frm-field required">
-														<option value="Choose your ID Proof">ID Proof</option>
+							<select id="country13" name="proof" onchange="change_country(this.value)" class="frm-field required" required="required">
+														<option value="">ID Proof</option>
 													 <option value="aadhar" onchange="checkpattern(this)">Aadhar</option>
 														<option value="election" onchange="checkelection(this)">Election</option>
 														<option value="pan" onchange = "checkpan(this)">Pan</option>     
